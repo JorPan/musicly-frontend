@@ -10,21 +10,47 @@ import Setly from "./setly.png";
 export default function Header() {
   return (
     <div className="about">
-      <Link to="/">
-        <img className="home-logo" src={MainLogo}></img>
-      </Link>
-      <Link>
-        <img className="lyricize-logo" src={Lyricize}></img>
-      </Link>
-      <Link>
-        <img className="modeify-logo" src={Modeify}></img>
-      </Link>
-      <Link>
-        <img className="riffly-logo" src={Riffly}></img>
-      </Link>
-      <Link>
-        <img className="setly-logo" src={Setly}></img>
-      </Link>
+      <div>
+        <Link to="/modeify">
+          <img
+            className="modeify-logo logo-card"
+            alt="modeify-logo"
+            src={Modeify}
+          ></img>
+        </Link>
+        <Link to="/lyricize">
+          <img
+            className="lyricize-logo logo-card"
+            alt="lyricize-logo"
+            src={Lyricize}
+          ></img>
+        </Link>
+      </div>
+      <div>
+        <Link to="/">
+          <img
+            className="home-logo logo-card"
+            alt="main-logo"
+            src={MainLogo}
+          ></img>
+        </Link>
+      </div>
+      <div>
+        <Link to="/riffly">
+          <img
+            className="riffly-logo logo-card"
+            alt="riffly-logo"
+            src={Riffly}
+          ></img>
+        </Link>
+        <Link to="/setly">
+          <img
+            className="setly-logo logo-card"
+            alt="setly-logo"
+            src={Setly}
+          ></img>
+        </Link>
+      </div>
     </div>
   );
 }
