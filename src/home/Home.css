@@ -33,7 +33,7 @@ body {
   margin: 0;
   padding: 0;
   background: rgb(145, 8, 8);
-  box-shadow: 0 0 0 10px #fff;
+  box-shadow: 0 0 0 10px rgb(236, 236, 236);
   overflow: hidden;
 }
 
@@ -65,22 +65,22 @@ body {
     transform: translateY(-100px) rotateY(0deg);
   }
   20% {
-    transform: translateY(0px) rotateY(360deg);
+    transform: translateY(10px) rotateY(360deg);
   }
   40% {
     transform: translateY(-10px) rotateY(360deg);
   }
   50% {
-    transform: translateY(0px) rotateY(360deg);
+    transform: translateY(10px) rotateY(360deg);
   }
   60% {
     transform: translateY(-10px) rotateY(360deg);
   }
   70% {
-    transform: translateY(0px) rotateY(360deg);
+    transform: translateY(10px) rotateY(360deg);
   }
   80% {
-    transform: translateY(10px) rotateY(450deg);
+    transform: translateY(0px) rotateY(450deg);
   }
   100% {
     transform: translateY(100px) rotateY(720deg);
@@ -191,11 +191,10 @@ img:hover {
 }
 
 .home-logo {
+  margin: 1rem;
   background-color: white;
   position: relative;
   width: 20vw;
-  /* top: 20vh;
-  left: 40vw; */
   border: 1px solid black;
   border-radius: 20px;
   display: flex;
@@ -204,11 +203,10 @@ img:hover {
 }
 
 .lyricize-logo {
+  margin: 1rem;
   background-color: white;
   position: relative;
   width: 20vw;
-  /* top: 3vh;
-  left: 44.3vw; */
   border: 1px solid black;
   border-radius: 20px;
   display: flex;
@@ -217,24 +215,23 @@ img:hover {
 }
 
 .modeify-logo {
+  margin: 1rem;
+  margin-top: 20px;
   background-color: white;
   position: relative;
   width: 20vw;
-  /* top: 3vh;
-  right: 25vw; */
   border: 1px solid black;
   border-radius: 20px;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
 .riffly-logo {
+  margin: 1rem;
+  margin-top: 20px;
   background-color: white;
   position: relative;
   width: 20vw;
-  /* top: 40vh;
-  left: 4vw; */
   border: 1px solid black;
   border-radius: 20px;
   display: flex;
@@ -243,11 +240,10 @@ img:hover {
 }
 
 .setly-logo {
+  margin: 1rem;
   background-color: white;
   position: relative;
   width: 20vw;
-  /* top: 40vh;
-  right: 65vw; */
   border: 1px solid black;
   border-radius: 20px;
   display: flex;
