@@ -28,7 +28,7 @@ body {
   position: absolute;
   top: 80px;
   left: 170px;
-  transform: translate(-50%, -50%) skewY(-8deg);
+  transform: translate(-50%, -50%) skewY(-9deg);
   display: flex;
   margin: 0;
   padding: 0;
@@ -163,14 +163,13 @@ img:hover {
 
 .footer {
   background-color: rgb(116, 0, 0);
-  height: 4vh;
+  height: 4.75vh;
   width: 100vw;
   position: absolute;
-  top: 94vh;
+  top: 95vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 0;
 }
 
 .footer-link {
@@ -194,24 +193,53 @@ img:hover {
   margin: 1rem;
   background-color: white;
   position: relative;
-  width: 20vw;
+  width: 15vw;
   border: 1px solid black;
   border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.home-logo:hover {
+  animation: redhovered 0.5s linear;
+}
+@keyframes redhovered {
+  0% {
+    background-color: white;
+  }
+  50% {
+    background-color: rgb(255, 204, 202);
+  }
+  100% {
+    background-color: white;
+  }
+}
 
 .lyricize-logo {
   margin: 1rem;
   background-color: white;
   position: relative;
-  width: 20vw;
+  width: 15vw;
   border: 1px solid black;
   border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.lyricize-logo:hover {
+  animation: purphovered 0.5s linear;
+}
+
+@keyframes purphovered {
+  0% {
+    background-color: white;
+  }
+  50% {
+    background-color: rgb(229, 202, 255);
+  }
+  100% {
+    background-color: white;
+  }
 }
 
 .modeify-logo {
@@ -219,11 +247,26 @@ img:hover {
   margin-top: 20px;
   background-color: white;
   position: relative;
-  width: 20vw;
+  width: 15vw;
   border: 1px solid black;
   border-radius: 20px;
   display: flex;
   align-items: center;
+}
+.modeify-logo:hover {
+  animation: bluehovered 0.5s linear;
+}
+
+@keyframes bluehovered {
+  0% {
+    background-color: white;
+  }
+  50% {
+    background-color: rgb(202, 244, 255);
+  }
+  100% {
+    background-color: white;
+  }
 }
 
 .riffly-logo {
@@ -231,7 +274,34 @@ img:hover {
   margin-top: 20px;
   background-color: white;
   position: relative;
-  width: 20vw;
+  width: 15vw;
+  border: 1px solid black;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.riffly-logo:hover {
+  animation: goldhovered 0.5s linear;
+}
+
+@keyframes goldhovered {
+  0% {
+    background-color: white;
+  }
+  50% {
+    background-color: rgb(255, 254, 202);
+  }
+  100% {
+    background-color: white;
+  }
+}
+
+.setly-logo {
+  margin: 1rem;
+  background-color: white;
+  position: relative;
+  width: 15vw;
   border: 1px solid black;
   border-radius: 20px;
   display: flex;
@@ -239,16 +309,20 @@ img:hover {
   align-items: center;
 }
 
-.setly-logo {
-  margin: 1rem;
-  background-color: white;
-  position: relative;
-  width: 20vw;
-  border: 1px solid black;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.setly-logo:hover {
+  animation: tealhovered 0.5s linear;
+}
+
+@keyframes tealhovered {
+  0% {
+    background-color: white;
+  }
+  50% {
+    background-color: rgb(187, 250, 239);
+  }
+  100% {
+    background-color: white;
+  }
 }
 
 .footer-page {
@@ -272,20 +346,4 @@ img:hover {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-}
-
-.logo-card:hover {
-  animation: hovered 0.4s ease-in-out;
-}
-
-@keyframes hovered {
-  0% {
-    width: 20vw;
-  }
-  50% {
-    width: 21vw;
-  }
-  100% {
-    width: 20vw;
-  }
 }
