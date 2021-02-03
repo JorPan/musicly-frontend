@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap");
+
+body {
+  background-color: rgb(238, 238, 238);
+}
+
+.header {
+  background-color: white;
+  font-family: "Noto Sans KR", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 12vh;
+  box-shadow: 0 3px 3px 3px #611212;
+}
+
+.links {
+  color: red;
+  font-size: 17px;
+  display: flex;
+  flex-direction: row;
+  padding: 25px;
+}
+
+.header-link {
+  color: rgb(184, 16, 16);
+  padding: 1rem;
+}
+
+.logo {
+  position: relative;
+  top: 5px;
+  height: 17vh;
+}
+
+.footer {
+  background-color: rgb(116, 0, 0);
+  height: 4vh;
+  width: 100vw;
+  position: absolute;
+  top: 94vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.footer-link {
+  color: white;
+  padding: 1rem;
+}
+
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-logo {
+  background-color: white;
+  position: relative;
+  width: 20vw;
+  top: 30vh;
+  left: 40vw;
+  border: 1px solid black;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lyricize-logo {
+  background-color: white;
+  position: relative;
+  width: 20vw;
+  top: 10vh;
+  left: 44vw;
+  border: 1px solid black;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modeify-logo {
+  background-color: white;
+  position: relative;
+  width: 20vw;
+  top: 10vh;
+  right: 25vw;
+  border: 1px solid black;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.riffly-logo {
+  background-color: white;
+  position: relative;
+  width: 20vw;
+  top: 50vh;
+  left: 4vw;
+  border: 1px solid black;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.setly-logo {
+  background-color: white;
+  position: relative;
+  width: 20vw;
+  top: 50vh;
+  right: 65vw;
+  border: 1px solid black;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
