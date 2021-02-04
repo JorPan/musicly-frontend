@@ -15,7 +15,7 @@ body {
 }
 
 .header-logo {
-  margin-left: 10rem;
+  margin-left: 5rem;
   font-size: 6vh;
   color: rgb(161, 19, 19);
   text-decoration: none;
@@ -201,7 +201,7 @@ img:hover {
   align-items: center;
 }
 .home-logo:hover {
-  animation: redhovered 0.5s linear;
+  animation: redhovered 0.5s ease-out;
 }
 @keyframes redhovered {
   0% {
@@ -209,6 +209,7 @@ img:hover {
   }
   50% {
     background-color: rgb(255, 204, 202);
+    box-shadow: 5px 10px #460101;
   }
   100% {
     background-color: white;
@@ -227,7 +228,7 @@ img:hover {
   align-items: center;
 }
 .lyricize-logo:hover {
-  animation: purphovered 0.5s linear;
+  animation: purphovered 0.5s ease-out;
 }
 
 @keyframes purphovered {
@@ -236,6 +237,7 @@ img:hover {
   }
   50% {
     background-color: rgb(229, 202, 255);
+    box-shadow: 5px 10px #400146;
   }
   100% {
     background-color: white;
@@ -254,7 +256,7 @@ img:hover {
   align-items: center;
 }
 .modeify-logo:hover {
-  animation: bluehovered 0.5s linear;
+  animation: bluehovered 0.5s ease-out;
 }
 
 @keyframes bluehovered {
@@ -263,6 +265,7 @@ img:hover {
   }
   50% {
     background-color: rgb(202, 244, 255);
+    box-shadow: 5px 10px #001174;
   }
   100% {
     background-color: white;
@@ -282,7 +285,7 @@ img:hover {
   align-items: center;
 }
 .riffly-logo:hover {
-  animation: goldhovered 0.5s linear;
+  animation: goldhovered 0.5s ease-out;
 }
 
 @keyframes goldhovered {
@@ -291,6 +294,7 @@ img:hover {
   }
   50% {
     background-color: rgb(255, 254, 202);
+    box-shadow: 5px 10px #697000;
   }
   100% {
     background-color: white;
@@ -304,13 +308,14 @@ img:hover {
   width: 15vw;
   border: 1px solid black;
   border-radius: 20px;
+  box-shadow: 5px 10px #888888;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .setly-logo:hover {
-  animation: tealhovered 0.5s linear;
+  animation: tealhovered 0.5s ease-out;
 }
 
 @keyframes tealhovered {
@@ -319,6 +324,7 @@ img:hover {
   }
   50% {
     background-color: rgb(187, 250, 239);
+    box-shadow: 5px 10px #004864;
   }
   100% {
     background-color: white;
@@ -346,4 +352,10 @@ img:hover {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  box-shadow: 5px 10px #888888;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
 }
