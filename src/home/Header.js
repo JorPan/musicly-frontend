@@ -6,13 +6,13 @@ import { Button, withStyles } from "@material-ui/core";
 export default function Header() {
   const StyledButton1 = withStyles({
     root: {
-      background: "linear-gradient(45deg, #931105 20%, #FFFFFF 95%)",
-      borderRadius: 3,
+      background: "linear-gradient(45deg, #931105 20%, #F5F5F5 75%)",
+      borderRadius: 50,
       border: 0,
       color: "white",
       height: 40,
       margin: 10,
-      boxShadow: "0 10px 10px 2px rgba(255, 105, 135, .3)",
+      boxShadow: "0 5px 5px 1px #750000",
     },
     label: {
       textTransform: "capitalize",
@@ -21,12 +21,12 @@ export default function Header() {
 
   const StyledButton2 = withStyles({
     root: {
-      background: "linear-gradient(-45deg, #931105 30%, #FFFFFF 95%)",
-      borderRadius: 3,
+      background: "linear-gradient(225deg, #931105 20%, #F5F5F5 75%)",
+      borderRadius: 50,
       border: 0,
       color: "white",
       height: 40,
-      boxShadow: "0 10px 10px 2px rgba(255, 105, 135, .3)",
+      boxShadow: "0 5px 5px 1px #750000",
     },
     label: {
       textTransform: "capitalize",
