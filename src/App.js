@@ -9,6 +9,7 @@ import Signup from "./login/Signup";
 import About from "./home/About";
 import Contact from "./home/Contact";
 import Resources from "./home/Resources";
+import Modify from "./modeify/modeify";
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
           <Route path="/resources" component={Resources} />
+          <Route path="/modeify" component={Modify} />
           <Redirect to="/" />
         </Switch>
         <Footer />
