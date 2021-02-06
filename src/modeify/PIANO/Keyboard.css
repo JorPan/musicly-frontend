@@ -26,6 +26,7 @@
   color: rgb(0, 0, 0);
   padding: 10px;
   border-radius: 15px;
+  box-shadow: 0 12px 2px 2px black;
 }
 
 .piano-text {
@@ -38,8 +39,9 @@
 
 .piano-natural-key-playing {
   background: #b1b1b1;
-  border-bottom: 10px solid rgb(236, 236, 236);
+  border-bottom: -10px solid rgb(236, 236, 236);
   color: rgb(255, 255, 255);
+  box-shadow: 0 5px 2px 2px rgb(0, 0, 0);
 }
 
 .piano-accidental-key-wrapper {
@@ -61,12 +63,14 @@
   padding: 5px;
   outline: none;
   color: #c5c5c5;
+  box-shadow: 0 6px 0px 0px rgb(0, 0, 0);
 }
 
 .piano-accidental-key-playing {
-  background: #703434;
-  border-bottom: 10px solid rgb(236, 236, 236);
+  background: #a83030;
+  border-bottom: -10px solid rgb(236, 236, 236);
   color: rgb(255, 255, 255);
+  box-shadow: 0 2px 0px 0px rgb(0, 0, 0);
 }
 
 .modeify-main {

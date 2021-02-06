@@ -12,6 +12,14 @@ export default class MainMode extends Component {
     playing: false,
   };
 
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleKeyDown);
+  }
+
+  handleKeyDown(e) {
+    console.log(e.key);
+  }
+
   render() {
     return (
       <div className="modeify-main">
