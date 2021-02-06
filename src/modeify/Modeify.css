@@ -1,0 +1,87 @@
+body {
+  background-color: rgb(243, 221, 221);
+}
+
+.piano {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.black-key-row {
+  display: flex;
+  width: 97vw;
+  height: 150px;
+
+  padding-top: 4px;
+}
+.white-key-row {
+  display: flex;
+  padding-top: 10px;
+  width: 100vw;
+  height: 200px;
+  margin-top: -160px;
+}
+
+.black-key {
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+  width: 3.6vw;
+  height: 100%;
+  background-color: black;
+  border: 1px solid black;
+  z-index: 10;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.black-key-blank {
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+  width: 3.3vw;
+  height: 100%;
+  z-index: -10;
+}
+
+.white-key {
+  width: 5vw;
+  height: 100%;
+  background-color: white;
+  border: 1px solid black;
+  z-index: -10;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  box-shadow: 0 3px 0px 3px black;
+  cursor: pointer;
+  z-index: 0;
+}
+
+.mode-section {
+  font-family: "Fjalla One", sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  padding-top: 20px;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+.mode-button {
+  width: 200px;
+  font-family: "Fjalla One", sans-serif;
+}
+
+.current-mode {
+  margin-left: 10px;
+}

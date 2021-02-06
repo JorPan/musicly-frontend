@@ -10,7 +10,6 @@ export default class MainMode extends Component {
     mode: "",
     notesPlaying: [],
     chordBuilder: [],
-    playing: false,
   };
 
   componentDidMount() {
@@ -26,6 +25,7 @@ export default class MainMode extends Component {
       <div className="modeify-main">
         <div className="piano">
           <Piano className="piano" />
+          <Keyboard />
         </div>
         <div className="under-keys">
           <div>
