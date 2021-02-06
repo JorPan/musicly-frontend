@@ -97,7 +97,7 @@ export default class MainMode extends Component {
                 className="mode-button"
                 variant="outlined"
               >
-                Change Piano Mode wtf
+                Change Piano Mode
               </Button>
             </div>
           </div>
