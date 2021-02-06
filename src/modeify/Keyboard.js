@@ -67,6 +67,11 @@ export default class Piano extends Component {
     window.addEventListener("keyup", this.handleKeyUp);
   }
 
+  componentWillUnmount() {
+    window.removeEventListener("keydown", this.handleKeyDown);
+    window.removeEventListener("keyup", this.handleKeyDown);
+  }
+
   handleKeyDown = (event) => {
     let keyPressed = event.key.toUpperCase();
     let mappedKeys = Object.keys(this.props.keyboardMap);
