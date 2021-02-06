@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Modeify from "../home/modeify.png";
 import Piano from "./PIANO/Piano";
+import Keyboard from "./Keyboard";
 import "./PIANO/Keyboard.css";
 import { Button } from "@material-ui/core";
 
