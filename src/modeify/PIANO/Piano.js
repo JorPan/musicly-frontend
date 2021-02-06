@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import Instrument from "./Instrument";
 
-const Piano = () => {
+const Piano = (props) => {
   const accidentalKey = ({ isPlaying, text, eventHandlers }) => {
     return (
       <div className="piano-accidental-key-wrapper">
@@ -59,7 +59,7 @@ const Piano = () => {
   return (
     <div className="piano-container">
       <Instrument
-        instrumentName={"acoustic_grand_piano"}
+        instrumentName={props.sound}
         startNote={"C3"}
         endNote={"B5"}
         renderPianoKey={renderPianoKey}

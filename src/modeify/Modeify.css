@@ -102,3 +102,6 @@ body {
 .current-mode {
   margin-left: 10px;
 }
+.sound-dropdown {
+  margin-top: -250px;
+}
