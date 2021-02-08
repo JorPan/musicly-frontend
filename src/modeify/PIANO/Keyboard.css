@@ -38,7 +38,7 @@
 }
 
 .piano-natural-key-playing {
-  background: #b1b1b1;
+  background: #333333;
   border-bottom: -10px solid rgb(236, 236, 236);
   color: rgb(255, 255, 255);
   box-shadow: 0 5px 2px 2px rgb(0, 0, 0);
@@ -67,7 +67,7 @@
 }
 
 .piano-accidental-key-playing {
-  background: #a83030;
+  background: #3d0000;
   border-bottom: -10px solid rgb(236, 236, 236);
   color: rgb(255, 255, 255);
   box-shadow: 0 2px 0px 0px rgb(0, 0, 0);
