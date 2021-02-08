@@ -18,7 +18,6 @@ export default class MainMode extends Component {
   };
 
   changePiano = () => {
-    console.log(this.state);
     if (this.state.piano === "hooks") {
       this.setState({ piano: "react" });
     } else {
@@ -234,7 +233,7 @@ export default class MainMode extends Component {
           ></img>
           <div className="mode-button-div">
             <div className="space"></div>
-            <div className="space"></div>
+
             <div>
               <Button
                 onClick={this.changePiano}

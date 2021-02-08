@@ -78,8 +78,8 @@ body {
 .under-keys {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  margin-top: 50vh;
+
+  margin-top: -33vh;
 }
 
 .mode-button {
@@ -96,7 +96,7 @@ body {
 }
 
 .space {
-  width: 38vw;
+  width: 30vw;
 }
 
 .current-mode {

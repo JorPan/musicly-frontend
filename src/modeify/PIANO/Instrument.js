@@ -65,7 +65,6 @@ const Instrument = ({
     });
   };
 
-  //rendering piano keys
   return (
     <Fragment>
       {notes.map((note) => {
