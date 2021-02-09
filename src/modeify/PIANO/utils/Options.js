@@ -1,4 +1,4 @@
-let options = [
+const options = [
   "acoustic_grand_piano",
   "accordion",
   "acoustic_bass",
