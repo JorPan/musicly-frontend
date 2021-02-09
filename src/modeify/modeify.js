@@ -104,17 +104,16 @@ const MainMode = () => {
           sound={state.sound}
         />
       </div>
-      {state.piano === "hooks" ? (
-        <div>
-          <Dropdown
-            className="sound-dropdown"
-            options={options}
-            onChange={onSelect}
-            value={defaultOption}
-            placeholder="Select an option"
-          />
-        </div>
-      ) : null}
+
+      <div>
+        <Dropdown
+          className="sound-dropdown"
+          options={options}
+          onChange={onSelect}
+          value={defaultOption}
+          placeholder="Select an option"
+        />
+      </div>
 
       <div className="under-keys">
         <img
