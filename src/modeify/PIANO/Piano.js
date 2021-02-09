@@ -59,9 +59,11 @@ const Piano = (props) => {
   return (
     <div className="piano-container">
       <Instrument
+        notesPlaying={props.notesPlaying}
+        newNotes={props.newNotes}
         instrumentName={props.sound}
         startNote={"C3"}
-        endNote={"B5"}
+        endNote={"C6"}
         renderPianoKey={renderPianoKey}
         keyboardMap={{
           Q: "C3",
