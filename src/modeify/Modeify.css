@@ -2,6 +2,10 @@ body {
   background-color: rgb(240, 223, 223);
 }
 
+/* .modeify-main {
+  justify-content: center;
+} */
+
 .piano {
   display: flex;
   flex-direction: column;
@@ -167,6 +171,30 @@ body {
   position: absolute;
   display: flex;
   flex-flow: row wrap;
-  top: 400px;
+  top: 320px;
   width: 90vw;
+  justify-content: center;
+}
+
+.chord-name {
+  font-size: 27px;
+  font-weight: bolder;
+  padding-right: 10px;
+}
+
+.key-title {
+  padding: 1rem;
+}
+
+.magic-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.magic-dropdowns {
+  font-family: "Noto Sans KR", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

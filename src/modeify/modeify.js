@@ -9,6 +9,7 @@ import "react-dropdown/style.css";
 import KeyboardMap from "./PIANO/utils/KeyboardMap";
 import options from "./PIANO/utils/Options";
 import Chords from "./Magic/Chords";
+import { Chord } from "@tonaljs/tonal";
 
 const MainMode = () => {
   const [state, setState] = useState({
@@ -52,9 +53,9 @@ const MainMode = () => {
       }
     } else if (e.key === "Enter") {
       pauseChord();
+      makeMagic(e);
     } else if (e.key === "Shift") {
       pauseChord();
-      makeMagic(e);
     } else if (state.notesPlaying.length === 5) {
       pauseChord();
       makeMagic();
@@ -94,6 +95,7 @@ const MainMode = () => {
   const saveChord = (event) => {
     event.preventDefault();
   };
+
   const makeMagic = (event) => {
     let chord = [...state.notesPlaying];
     setState({ ...state, chordBuilder: chord, mode: "magic" });
@@ -133,6 +135,7 @@ const MainMode = () => {
           ) : state.mode === "ready" ? (
             <p className="instructions1">Play some Keys!</p>
           ) : null}
+
           <div className="current-chord">
             {state.notesPlaying.length > 0 ? (
               <p className="instructions3">
@@ -148,6 +151,9 @@ const MainMode = () => {
                   );
                 })
               : null}
+            <p className="title chord-name">
+              {Chord.detect(state.notesPlaying)[0]}
+            </p>
           </div>
 
           {state.chordBuilder.length > 0 ? (
