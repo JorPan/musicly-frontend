@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(243, 221, 221);
+  background-color: rgb(240, 223, 223);
 }
 
 .piano {
@@ -127,14 +127,13 @@ body {
   font-family: "Noto Sans KR", sans-serif;
   position: absolute;
   top: 2vh;
-  left: 48vw;
+  left: 49vw;
 }
 
 .instructions2 {
   font-family: "Noto Sans KR", sans-serif;
   position: relative;
-  bottom: 1vh;
-  left: 44vw;
+  right: 23vw;
 }
 
 .instructions3 {
@@ -162,4 +161,9 @@ body {
 .clear-save-buttons {
   position: absolute;
   top: 7vh;
+}
+
+.chord-playground {
+  position: absolute;
+  top: 400px;
 }

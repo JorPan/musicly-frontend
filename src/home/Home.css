@@ -194,7 +194,7 @@ img:hover {
   margin: 1rem;
   background-color: white;
   position: relative;
-  width: 15vw;
+  width: 12vw;
   border: 1px solid black;
   border-radius: 20px;
   display: flex;
@@ -221,7 +221,7 @@ img:hover {
   margin: 1rem;
   background-color: white;
   position: relative;
-  width: 15vw;
+  width: 10vw;
   border: 1px solid black;
   border-radius: 20px;
   display: flex;
@@ -250,7 +250,7 @@ img:hover {
   margin-top: 20px;
   background-color: white;
   position: relative;
-  width: 15vw;
+  width: 10vw;
   border: 1px solid black;
   border-radius: 20px;
   display: flex;
@@ -278,7 +278,7 @@ img:hover {
   margin-top: 20px;
   background-color: white;
   position: relative;
-  width: 15vw;
+  width: 10vw;
   border: 1px solid black;
   border-radius: 20px;
   display: flex;
@@ -306,7 +306,7 @@ img:hover {
   margin: 1rem;
   background-color: white;
   position: relative;
-  width: 15vw;
+  width: 10vw;
   border: 1px solid black;
   border-radius: 20px;
   box-shadow: 5px 10px #888888;

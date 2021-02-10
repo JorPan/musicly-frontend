@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Modeify from "../home/modeify.png";
 import Piano from "./PIANO/Piano";
-// import Keyboard from "./Keyboard";
 import "./PIANO/Keyboard.css";
 import "./Modeify.css";
 import { Button } from "@material-ui/core";
@@ -9,6 +8,7 @@ import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import KeyboardMap from "./PIANO/utils/KeyboardMap";
 import options from "./PIANO/utils/Options";
+import Chords from "./Magic/Chords";
 
 const MainMode = () => {
   const [state, setState] = useState({
@@ -18,8 +18,9 @@ const MainMode = () => {
     chordBuilder: [],
     sound: "acoustic_grand_piano",
     newNotes: false,
-    // options: options,
   });
+
+  let defaultOption = options[0];
 
   const isRegularKey = (event) => {
     return !event.ctrlKey && !event.metaKey && !event.shiftKey;
@@ -51,6 +52,8 @@ const MainMode = () => {
       }
     } else if (e.key === "Enter") {
       pauseChord();
+    } else if (state.notesPlaying.length === 5) {
+      pauseChord();
     }
   };
 
@@ -77,10 +80,8 @@ const MainMode = () => {
     window.removeEventListener("keydown", handleKeyDown);
     window.removeEventListener("keyup", handleKeyUp);
     let chord = [...state.notesPlaying];
-    setState({ ...state, chordBuilder: chord });
+    setState({ ...state, chordBuilder: chord, mode: "paused" });
   };
-
-  let defaultOption = options[0];
 
   const soundSelect = (event) => {
     setState({ ...state, sound: event.value });
@@ -91,6 +92,7 @@ const MainMode = () => {
   };
   const makeMagic = (event) => {
     event.preventDefault();
+    setState({ ...state, mode: "magic" });
   };
 
   return (
@@ -180,6 +182,7 @@ const MainMode = () => {
           sound={state.sound}
         />
       </div>
+      <Chords chord={state.chordBuilder} mode={state.mode} />
     </div>
   );
 };

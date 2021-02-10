@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import Instrument from "./Instrument";
 
 const Piano = (props) => {
