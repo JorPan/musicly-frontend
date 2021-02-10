@@ -7,7 +7,7 @@ export default function Chords(props) {
   let chordOptions;
   if (props.mode === "magic") {
     chord = Chord.detect(props.chord);
-    chordOptions = Chord.extended(chord);
+    chordOptions = Chord.extended(chord[0]);
   }
 
   return (
@@ -15,7 +15,7 @@ export default function Chords(props) {
       {props.mode === "magic" ? (
         <div>
           <h1 className="title">Chord:</h1>
-          <h2 className="title">{chord}</h2>
+          <h2 className="title">{chord.length > 1 ? chord[0] : chord}</h2>
           <h2 className="title">{Chord.chordScales(chord)}</h2>
           <h1 className="title">Chord Extensions:</h1>
           <h2 className="title">{chordOptions}</h2>

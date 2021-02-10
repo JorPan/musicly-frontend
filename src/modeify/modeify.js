@@ -52,8 +52,12 @@ const MainMode = () => {
       }
     } else if (e.key === "Enter") {
       pauseChord();
+    } else if (e.key === "Shift") {
+      pauseChord();
+      makeMagic(e);
     } else if (state.notesPlaying.length === 5) {
       pauseChord();
+      makeMagic();
     }
   };
 
@@ -91,8 +95,8 @@ const MainMode = () => {
     event.preventDefault();
   };
   const makeMagic = (event) => {
-    event.preventDefault();
-    setState({ ...state, mode: "magic" });
+    let chord = [...state.notesPlaying];
+    setState({ ...state, chordBuilder: chord, mode: "magic" });
   };
 
   return (

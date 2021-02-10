@@ -165,5 +165,8 @@ body {
 
 .chord-playground {
   position: absolute;
+  display: flex;
+  flex-flow: row wrap;
   top: 400px;
+  width: 90vw;
 }
