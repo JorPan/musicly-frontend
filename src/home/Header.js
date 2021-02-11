@@ -50,7 +50,7 @@ export default function Header() {
       <div className="links">
         <div className="nav"></div>
         <div className="auth">
-          <StyledButton1 variant="outlined">
+          {/* <StyledButton1 variant="outlined">
             <Link className="header-link" to="/login">
               login
             </Link>
@@ -59,7 +59,7 @@ export default function Header() {
             <Link className="header-link" to="/signup">
               sign up
             </Link>
-          </StyledButton2>
+          </StyledButton2> */}
         </div>
       </div>
     </div>

@@ -66,50 +66,60 @@ export default function Chords(props) {
           <p className="title key-title">Key: {key}</p>
           <p className="title key-title">{majorminor}</p>
           <div className="chord-card" draggable="true">
-            <h1 className="key-title">{chord}</h1>
+            <h1 className="card-title">{chord}</h1>
+            <p className="card-notes">{props.notes.join(", ")}</p>
             <ChordPlayers mode={props.mode} chord={chord} />
           </div>
           <div className="magic-dropdowns">
             <h1 className="explore">Explore:</h1>
-            <Button
-              onClick={chordExtensions}
-              className="generate-chord-button"
-              variant="outlined"
-            >
-              Chord Extensions
-            </Button>
-            <Button
-              onClick={minorScale}
-              className="view-scale-button"
-              variant="outlined"
-              color="primary"
-            >
-              Major
-            </Button>
-            <Button
-              onClick={majorScale}
-              className="view-scale-button"
-              variant="outlined"
-              color="secondary"
-            >
-              Minor
-            </Button>
-            <Dropdown
-              className="sound-dropdown"
-              options={scaleOptions}
-              value={state.scale}
-              onChange={viewScale}
-              placeholder={"Select an option"}
-            />
-
-            {state.scales === true ? (
+            <div className="button">
               <Button
-                onClick={clearScale}
-                className="view-scale-button"
+                onClick={chordExtensions}
+                className="generate-chord-button"
                 variant="outlined"
               >
-                Clear Scale
+                Chord Extensions
               </Button>
+            </div>
+            <div className="button">
+              <Button
+                onClick={minorScale}
+                className="view-scale-button"
+                variant="outlined"
+                color="primary"
+              >
+                Major
+              </Button>
+            </div>
+            <div className="button">
+              <Button
+                onClick={majorScale}
+                className="view-scale-button"
+                variant="outlined"
+                color="secondary"
+              >
+                Minor
+              </Button>
+            </div>
+            <div className="button">
+              <Dropdown
+                className="sound-dropdown"
+                options={scaleOptions}
+                value={state.scale}
+                onChange={viewScale}
+                placeholder={"Select an option"}
+              />
+            </div>
+            {state.scales === true ? (
+              <div className="button">
+                <Button
+                  onClick={clearScale}
+                  className="view-scale-button"
+                  variant="outlined"
+                >
+                  Clear Scale
+                </Button>
+              </div>
             ) : null}
           </div>
         </div>

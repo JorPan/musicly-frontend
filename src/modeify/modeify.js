@@ -24,6 +24,11 @@ const MainMode = () => {
 
   let defaultOption = options[0];
 
+  const soundSelect = (event) => {
+    console.log(event);
+    setState({ ...state, sound: event.value });
+  };
+
   const isRegularKey = (event) => {
     return !event.ctrlKey && !event.metaKey && !event.shiftKey;
   };
@@ -96,10 +101,6 @@ const MainMode = () => {
       chord: chordName,
       mode: "paused",
     });
-  };
-
-  const soundSelect = (event) => {
-    setState({ ...state, sound: event.value });
   };
 
   const saveChord = (event) => {};
@@ -210,7 +211,11 @@ const MainMode = () => {
         />
       </div>
       {state.mode === "magic" ? (
-        <Chords chord={state.chordBuilder} mode={state.mode} />
+        <Chords
+          chord={state.chordBuilder}
+          mode={state.mode}
+          notes={state.notesPlaying}
+        />
       ) : null}
       {state.mode === "magic" ? (
         <div className="dropzone">

@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&family=Fjalla+One&display=swap");
 
 body {
-  background-color: rgb(240, 223, 223);
+  background-color: rgb(231, 218, 218);
 }
 
 /* .modeify-main {
@@ -15,7 +15,7 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 140px;
+  top: 12vh;
 }
 
 .black-key-row {
@@ -173,6 +173,7 @@ body {
 }
 
 .chord-name {
+  color: rgb(55, 139, 55);
   font-size: 27px;
   font-weight: bolder;
   padding-right: 10px;
@@ -183,11 +184,12 @@ body {
   font-family: "Noto Sans KR", sans-serif;
   font-weight: 100;
   margin-bottom: 25px;
+  margin-left: 30px;
 }
 
 .key-title {
-  padding: 1rem;
-  font-size: 20px;
+  padding: 2rem;
+  font-size: 25px;
 }
 
 .magic-section {
@@ -209,23 +211,12 @@ body {
   align-items: center;
 }
 
-/* .scales_chords_api {
-  width: 100px;
-  height: 100px;
-} */
-
-/* .gimme {
-  position: absolute;
-  margin-top: 500px;
-} */
-
 .chord-card {
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
   width: 170px;
   height: 95px;
   margin: 5px;
@@ -263,6 +254,7 @@ body {
 
 .dropzone-title {
   font-family: "Fjalla One", sans-serif;
+  color: white;
   font-size: 30px;
   margin-left: 1rem;
 }
@@ -272,6 +264,11 @@ body {
   top: 84vh;
   width: 95vw;
   height: 10vh;
-  border: 1px solid black;
+  background-color: grey;
   border-radius: 20px;
+  box-shadow: 0 1px 1px 1px rgb(44, 44, 44);
+}
+
+.button {
+  padding: 2rem;
 }
