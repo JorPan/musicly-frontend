@@ -17,6 +17,7 @@ const MainMode = () => {
     mode: "ready",
     notesPlaying: [],
     chordBuilder: [],
+    chord: "",
     sound: "acoustic_grand_piano",
     newNotes: false,
   });
@@ -82,10 +83,19 @@ const MainMode = () => {
   };
 
   const pauseChord = () => {
-    window.removeEventListener("keydown", handleKeyDown);
+    // window.removeEventListener("keydown", handleKeyDown);
     window.removeEventListener("keyup", handleKeyUp);
+    let chordName = Chord.detect(state.notesPlaying);
+    if (chordName.length > 1) {
+      chordName = Chord.detect(state.notesPlaying)[0];
+    }
     let chord = [...state.notesPlaying];
-    setState({ ...state, chordBuilder: chord, mode: "paused" });
+    setState({
+      ...state,
+      chordBuilder: chord,
+      chord: chordName,
+      mode: "paused",
+    });
   };
 
   const soundSelect = (event) => {
@@ -97,8 +107,18 @@ const MainMode = () => {
   };
 
   const makeMagic = (event) => {
+    window.removeEventListener("keydown", handleKeyDown);
+    let chordName = Chord.detect(state.notesPlaying);
+    if (chordName.length > 1) {
+      chordName = Chord.detect(state.notesPlaying)[0];
+    }
     let chord = [...state.notesPlaying];
-    setState({ ...state, chordBuilder: chord, mode: "magic" });
+    setState({
+      ...state,
+      chordBuilder: chord,
+      chord: chordName,
+      mode: "magic",
+    });
   };
 
   return (
@@ -130,7 +150,6 @@ const MainMode = () => {
               >
                 Pause Chord
               </Button>
-              <p className="instructions2">Press enter to Pause Chord</p>
             </div>
           ) : state.mode === "ready" ? (
             <p className="instructions1">Play some Keys!</p>
@@ -192,7 +211,23 @@ const MainMode = () => {
           sound={state.sound}
         />
       </div>
-      <Chords chord={state.chordBuilder} mode={state.mode} />
+      {state.mode === "magic" ? (
+        <Chords chord={state.chordBuilder} mode={state.mode} />
+      ) : null}
+      <div className="gimme">
+        <ins
+          className="scales_chords_api"
+          chord={state.chord}
+          instrument="piano"
+          nolink="true"
+        ></ins>
+        <ins
+          className="scales_chords_api"
+          chord={state.chord}
+          instrument="piano"
+          output="sound"
+        ></ins>
+      </div>
     </div>
   );
 };

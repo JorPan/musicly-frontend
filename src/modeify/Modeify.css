@@ -134,12 +134,6 @@ body {
   left: 49vw;
 }
 
-.instructions2 {
-  font-family: "Noto Sans KR", sans-serif;
-  position: relative;
-  right: 23vw;
-}
-
 .instructions3 {
   font-family: "Noto Sans KR", sans-serif;
   position: relative;
@@ -197,4 +191,20 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.render-chords {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scales_chords_api {
+  width: 100px;
+  height: 100px;
+}
+
+.gimme {
+  position: absolute;
+  margin-top: 500px;
 }

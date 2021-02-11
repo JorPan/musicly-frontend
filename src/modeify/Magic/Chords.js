@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Chord } from "@tonaljs/tonal";
 import Dropdown from "react-dropdown";
 import { Button } from "@material-ui/core";
+import ChordPlayers from "./ChordPlayers";
 
 export default function Chords(props) {
   let key;
@@ -11,8 +12,12 @@ export default function Chords(props) {
   let scaleOptions;
   if (props.mode === "magic") {
     chord = Chord.detect(props.chord);
+    if (props.chord.length > 1) {
+      chord = Chord.detect(props.chord)[0];
+    }
+
     scaleOptions = Chord.chordScales(chord);
-    chordOptions = Chord.extended(chord[0]);
+    chordOptions = Chord.extended(chord);
     if (chord.toString().split("")[1] !== "#") {
       key = chord.toString().split("")[0];
     } else {
@@ -68,25 +73,9 @@ export default function Chords(props) {
           </div>
         </div>
       ) : null}
+      <ChordPlayers mode={props.mode} chord={chord} />
     </div>
   );
 }
 
 // EXAMPLE CODE
-
-{
-  /* <div className="render-chords">
-  <ins
-    className="scales_chords_api"
-    chord="Cm9"
-    instrument="piano"
-    nolink="true"
-  ></ins>
-  <ins
-    className="scales_chords_api"
-    chord="Cm9"
-    instrument="piano"
-    output="sound"
-  ></ins>
-</div>; */
-}
