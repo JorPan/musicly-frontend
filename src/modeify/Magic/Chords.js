@@ -9,7 +9,7 @@ export default function Chords(props) {
   let [state, setState] = useState({
     extensions: false,
     scales: false,
-    scale: "Scale Options...",
+    scale: "More Scales...",
   });
 
   let key;
@@ -27,7 +27,9 @@ export default function Chords(props) {
     scaleOptions = Chord.chordScales(chord);
     chordOptions = Chord.extended(chord);
 
-    if (chord.toString().split("")[1] !== "#") {
+    if (!chord) {
+      chord = "Try Again";
+    } else if (chord.toString().split("")[1] !== "#") {
       key = chord.toString().split("")[0];
     } else {
       key = chord.toString().split("")[0].concat(chord.toString().split("")[1]);
@@ -50,8 +52,12 @@ export default function Chords(props) {
   };
 
   const clearScale = () => {
-    setState({ ...state, scales: false, scale: "Scale Options..." });
+    setState({ ...state, scales: false, scale: "More Scales..." });
   };
+
+  const majorScale = () => {};
+
+  const minorScale = () => {};
 
   return (
     <div className="chord-playground">
@@ -64,12 +70,29 @@ export default function Chords(props) {
             <ChordPlayers mode={props.mode} chord={chord} />
           </div>
           <div className="magic-dropdowns">
+            <h1 className="explore">Explore:</h1>
             <Button
               onClick={chordExtensions}
               className="generate-chord-button"
               variant="outlined"
             >
               Chord Extensions
+            </Button>
+            <Button
+              onClick={minorScale}
+              className="view-scale-button"
+              variant="outlined"
+              color="primary"
+            >
+              Major
+            </Button>
+            <Button
+              onClick={majorScale}
+              className="view-scale-button"
+              variant="outlined"
+              color="secondary"
+            >
+              Minor
             </Button>
             <Dropdown
               className="sound-dropdown"
@@ -78,6 +101,7 @@ export default function Chords(props) {
               onChange={viewScale}
               placeholder={"Select an option"}
             />
+
             {state.scales === true ? (
               <Button
                 onClick={clearScale}

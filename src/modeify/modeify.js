@@ -102,9 +102,7 @@ const MainMode = () => {
     setState({ ...state, sound: event.value });
   };
 
-  const saveChord = (event) => {
-    event.preventDefault();
-  };
+  const saveChord = (event) => {};
 
   const makeMagic = (event) => {
     window.removeEventListener("keydown", handleKeyDown);

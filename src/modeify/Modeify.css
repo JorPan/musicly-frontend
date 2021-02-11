@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&family=Fjalla+One&display=swap");
+
 body {
   background-color: rgb(240, 223, 223);
 }
@@ -152,7 +155,6 @@ body {
   font-family: "Noto Sans KR", sans-serif;
   font-weight: bolder;
   padding: 1rem;
-
   height: 10px;
 }
 
@@ -175,6 +177,12 @@ body {
   font-weight: bolder;
   padding-right: 10px;
   margin-bottom: 0px;
+}
+
+.explore {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 100;
+  margin-bottom: 25px;
 }
 
 .key-title {
