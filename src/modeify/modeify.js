@@ -214,7 +214,19 @@ const MainMode = () => {
       {state.mode === "magic" ? (
         <Chords chord={state.chordBuilder} mode={state.mode} />
       ) : null}
-      <div className="gimme">
+      {state.mode === "magic" ? (
+        <div className="dropzone">
+          <h1 className="dropzone-title">Drop Zone</h1>
+        </div>
+      ) : null}
+    </div>
+  );
+};
+
+export default MainMode;
+
+{
+  /* <div className="gimme">
         <ins
           className="scales_chords_api"
           chord={state.chord}
@@ -227,9 +239,5 @@ const MainMode = () => {
           instrument="piano"
           output="sound"
         ></ins>
-      </div>
-    </div>
-  );
-};
-
-export default MainMode;
+      </div> */
+}

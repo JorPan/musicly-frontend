@@ -6,18 +6,27 @@ import { Button } from "@material-ui/core";
 import ChordPlayers from "./ChordPlayers";
 
 export default function Chords(props) {
+  let [state, setState] = useState({
+    extensions: false,
+    scales: false,
+    scale: "Scale Options...",
+  });
+
   let key;
   let chord;
   let chordOptions;
   let scaleOptions;
+  let majorminor;
   if (props.mode === "magic") {
     chord = Chord.detect(props.chord);
+
     if (props.chord.length > 1) {
       chord = Chord.detect(props.chord)[0];
     }
 
     scaleOptions = Chord.chordScales(chord);
     chordOptions = Chord.extended(chord);
+
     if (chord.toString().split("")[1] !== "#") {
       key = chord.toString().split("")[0];
     } else {
@@ -25,12 +34,23 @@ export default function Chords(props) {
     }
   }
 
-  const generateChord = () => {
-    console.log(chord);
+  if (chord.includes("M")) {
+    majorminor = "major";
+  }
+  if (chord.includes("m")) {
+    majorminor = "minor";
+  }
+
+  const chordExtensions = () => {
+    setState({ ...state, extensions: !state.extensions });
   };
 
-  const viewScale = () => {
-    console.log("hi");
+  const viewScale = (event) => {
+    setState({ ...state, scales: true, scale: event.value });
+  };
+
+  const clearScale = () => {
+    setState({ ...state, scales: false, scale: "Scale Options..." });
   };
 
   return (
@@ -38,44 +58,56 @@ export default function Chords(props) {
       {props.mode === "magic" ? (
         <div className="magic-section">
           <p className="title key-title">Key: {key}</p>
-          <div className="title">
-            <p className="chord-name">Chord: {chord}</p>
+          <p className="title key-title">{majorminor}</p>
+          <div className="chord-card" draggable="true">
+            <h1 className="key-title">{chord}</h1>
+            <ChordPlayers mode={props.mode} chord={chord} />
           </div>
           <div className="magic-dropdowns">
-            <Dropdown
-              className="sound-dropdown"
-              options={chordOptions}
-              // onChange={}
-              value="chord extensions"
-              placeholder="Select an option"
-            />
             <Button
-              onClick={generateChord}
+              onClick={chordExtensions}
               className="generate-chord-button"
               variant="outlined"
             >
-              Generate Chord
+              Chord Extensions
             </Button>
             <Dropdown
               className="sound-dropdown"
               options={scaleOptions}
-              // onChange={}
-              value="scale options"
-              placeholder="Select an option"
+              value={state.scale}
+              onChange={viewScale}
+              placeholder={"Select an option"}
             />
-            <Button
-              onClick={viewScale}
-              className="view-scale-button"
-              variant="outlined"
-            >
-              Explore Scale
-            </Button>
+            {state.scales === true ? (
+              <Button
+                onClick={clearScale}
+                className="view-scale-button"
+                variant="outlined"
+              >
+                Clear Scale
+              </Button>
+            ) : null}
           </div>
         </div>
       ) : null}
-      <ChordPlayers mode={props.mode} chord={chord} />
+      <div className="chord-list">
+        {state.extensions === true
+          ? chordOptions.map((option, i) => {
+              let notes = Chord.get(option).notes.join(", ");
+              return (
+                <div className="chord-card" draggable="true">
+                  <h1 className="card-title">{option}</h1>
+                  <p className="card-notes">{notes}</p>
+                  <ChordPlayers
+                    className="play-button"
+                    mode={props.mode}
+                    chord={option}
+                  />
+                </div>
+              );
+            })
+          : null}
+      </div>
     </div>
   );
 }
-
-// EXAMPLE CODE

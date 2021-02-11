@@ -23,9 +23,6 @@ export default function ChordPlayers(props) {
   }, []);
 
   const playChord = (event) => {
-    // fetch("https://www.scales-chords.com/chord/piano/Cminor9")
-    //   .then((response) => response.json())
-    //   .then(console.log);
     audio.init(function (err, fns) {
       let chordify = Chord.get(props.chord);
       chordify.notes.forEach((curNote) => {
@@ -37,7 +34,9 @@ export default function ChordPlayers(props) {
 
   return (
     <div className="render-chords">
-      <button onClick={playChord}>play chord</button>
+      <button className="play-button" onClick={playChord}>
+        preview
+      </button>
     </div>
   );
 }

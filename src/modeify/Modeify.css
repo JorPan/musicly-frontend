@@ -12,7 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 120px;
+  top: 140px;
 }
 
 .black-key-row {
@@ -130,7 +130,7 @@ body {
 .instructions1 {
   font-family: "Noto Sans KR", sans-serif;
   position: absolute;
-  top: 2vh;
+  top: 1vh;
   left: 49vw;
 }
 
@@ -165,7 +165,7 @@ body {
   position: absolute;
   display: flex;
   flex-flow: row wrap;
-  top: 320px;
+  top: 350px;
   width: 90vw;
   justify-content: center;
 }
@@ -174,10 +174,12 @@ body {
   font-size: 27px;
   font-weight: bolder;
   padding-right: 10px;
+  margin-bottom: 0px;
 }
 
 .key-title {
   padding: 1rem;
+  font-size: 20px;
 }
 
 .magic-section {
@@ -199,12 +201,69 @@ body {
   align-items: center;
 }
 
-.scales_chords_api {
+/* .scales_chords_api {
   width: 100px;
   height: 100px;
-}
+} */
 
-.gimme {
+/* .gimme {
   position: absolute;
   margin-top: 500px;
+} */
+
+.chord-card {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  width: 170px;
+  height: 95px;
+  margin: 5px;
+  border-radius: 20px;
+  box-shadow: 0 2px 1px 1px rgb(189, 189, 189);
+}
+
+.chord-card:hover {
+  cursor: grab;
+}
+.chord-card:active {
+  cursor: grabbing;
+}
+
+.chord-list {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.card-title {
+  font-family: "Fjalla One", sans-serif;
+  font-size: 20px;
+  font-weight: 100;
+  margin-top: 10px;
+}
+
+.card-notes {
+  font-size: 15px;
+  margin-top: 0px;
+}
+
+.play-button {
+  margin-bottom: 10px;
+}
+
+.dropzone-title {
+  font-family: "Fjalla One", sans-serif;
+  font-size: 30px;
+  margin-left: 1rem;
+}
+
+.dropzone {
+  position: absolute;
+  top: 84vh;
+  width: 95vw;
+  height: 10vh;
+  border: 1px solid black;
+  border-radius: 20px;
 }
