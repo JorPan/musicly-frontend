@@ -218,7 +218,7 @@ const MainMode = () => {
         />
       ) : null}
       {state.mode === "magic" ? (
-        <div className="dropzone">
+        <div className="dropzone droppable">
           <h1 className="dropzone-title">Drop Zone</h1>
         </div>
       ) : null}

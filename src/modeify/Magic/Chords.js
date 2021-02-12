@@ -10,6 +10,8 @@ export default function Chords(props) {
     extensions: false,
     scales: false,
     scale: "More Scales...",
+    major: false,
+    minor: false,
   });
 
   let key;
@@ -17,6 +19,9 @@ export default function Chords(props) {
   let chordOptions;
   let scaleOptions;
   let majorminor;
+  // let scaleNotes;
+  // let scaleChords;
+
   if (props.mode === "magic") {
     chord = Chord.detect(props.chord);
 
@@ -36,28 +41,66 @@ export default function Chords(props) {
     }
   }
 
-  if (chord.includes("M")) {
+  if (chord) {
     majorminor = "major";
   }
-  if (chord.includes("m")) {
+  if (chord.includes("m") || chord.includes("min")) {
     majorminor = "minor";
+  }
+  if (chord.includes("M") || chord.includes("maj")) {
+    majorminor = "major";
   }
 
   const chordExtensions = () => {
-    setState({ ...state, extensions: !state.extensions });
+    setState({
+      ...state,
+      extensions: !state.extensions,
+      minor: false,
+      major: false,
+      scale: "More Scales...",
+    });
   };
 
   const viewScale = (event) => {
-    setState({ ...state, scales: true, scale: event.value });
+    setState({
+      ...state,
+      scales: true,
+      minor: false,
+      major: false,
+      extensions: false,
+      scale: event.value,
+    });
   };
 
   const clearScale = () => {
-    setState({ ...state, scales: false, scale: "More Scales..." });
+    setState({
+      ...state,
+      scales: false,
+      minor: false,
+      major: false,
+      scale: "More Scales...",
+    });
   };
 
-  const majorScale = () => {};
+  const majorScale = () => {
+    setState({
+      ...state,
+      major: !state.major,
+      minor: false,
+      extensions: false,
+      scale: "More Scales...",
+    });
+  };
 
-  const minorScale = () => {};
+  const minorScale = () => {
+    setState({
+      ...state,
+      minor: !state.minor,
+      major: false,
+      extensions: false,
+      scale: "More Scales...",
+    });
+  };
 
   return (
     <div className="chord-playground">
@@ -83,7 +126,7 @@ export default function Chords(props) {
             </div>
             <div className="button">
               <Button
-                onClick={minorScale}
+                onClick={majorScale}
                 className="view-scale-button"
                 variant="outlined"
                 color="primary"
@@ -93,7 +136,7 @@ export default function Chords(props) {
             </div>
             <div className="button">
               <Button
-                onClick={majorScale}
+                onClick={minorScale}
                 className="view-scale-button"
                 variant="outlined"
                 color="secondary"
@@ -141,6 +184,9 @@ export default function Chords(props) {
               );
             })
           : null}
+        {state.major === true ? <h1>major</h1> : null}
+        {state.minor === true ? <h1>minor</h1> : null}
+        {state.scale !== "More Scales..." ? <h1>{state.scale}</h1> : null}
       </div>
     </div>
   );
