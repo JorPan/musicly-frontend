@@ -12,6 +12,8 @@ export default function Chords(props) {
     scale: "More Scales...",
     major: false,
     minor: false,
+    // build: false,
+    builder: [],
   });
 
   let key;
@@ -57,6 +59,7 @@ export default function Chords(props) {
       extensions: !state.extensions,
       minor: false,
       major: false,
+      // build: true,
       scale: "More Scales...",
     });
   };
@@ -67,6 +70,7 @@ export default function Chords(props) {
       scales: true,
       minor: false,
       major: false,
+      // build: false,
       extensions: false,
       scale: event.value,
     });
@@ -78,6 +82,7 @@ export default function Chords(props) {
       scales: false,
       minor: false,
       major: false,
+      build: true,
       scale: "More Scales...",
     });
   };
@@ -88,6 +93,7 @@ export default function Chords(props) {
       major: !state.major,
       minor: false,
       extensions: false,
+      // build: true,
       scale: "More Scales...",
     });
   };
@@ -98,8 +104,43 @@ export default function Chords(props) {
       minor: !state.minor,
       major: false,
       extensions: false,
+      // build: true,
       scale: "More Scales...",
     });
+  };
+
+  const removeFromBuilder = (event) => {
+    let filteredProgression = state.builder.filter(
+      (chordInProgression) => event.target !== chordInProgression
+    );
+    setState({ ...state, builder: filteredProgression });
+  };
+
+  const addToBuilder = (event) => {
+    let currentCard = [event.target.parentNode.parentNode];
+    let currentCardName = currentCard[0].children[0].innerText;
+    let currentCardNotes = currentCard[0].children[1].innerText;
+    let currentCardPlayer = <ChordPlayers chord={currentCardName} />;
+    console.log(
+      currentCard,
+      currentCardName,
+      currentCardNotes,
+      currentCardPlayer
+    );
+
+    let newFavorite = (
+      <div className="chord-card" draggable="true">
+        <h1 className="card-title">{currentCardName}</h1>
+        <p className="card-notes">{currentCardNotes}</p>
+        <div className="card-bottom">
+          <ChordPlayers chord={currentCardName} />
+          <button onClick={removeFromBuilder} className="add-chord-button">
+            -
+          </button>
+        </div>
+      </div>
+    );
+    setState({ ...state, builder: [...state.builder, newFavorite] });
   };
 
   return (
@@ -111,7 +152,12 @@ export default function Chords(props) {
           <div className="chord-card" draggable="true">
             <h1 className="card-title">{chord}</h1>
             <p className="card-notes">{props.notes.join(", ")}</p>
-            <ChordPlayers mode={props.mode} chord={chord} />
+            <div className="card-bottom">
+              <ChordPlayers mode={props.mode} chord={chord} />
+              <button onClick={addToBuilder} className="add-chord-button">
+                +
+              </button>
+            </div>
           </div>
           <div className="magic-dropdowns">
             <h1 className="explore">Explore:</h1>
@@ -175,11 +221,16 @@ export default function Chords(props) {
                 <div className="chord-card" draggable="true">
                   <h1 className="card-title">{option}</h1>
                   <p className="card-notes">{notes}</p>
-                  <ChordPlayers
-                    className="play-button"
-                    mode={props.mode}
-                    chord={option}
-                  />
+                  <div className="card-bottom">
+                    <ChordPlayers
+                      className="play-button"
+                      mode={props.mode}
+                      chord={option}
+                    />
+                    <button onClick={addToBuilder} className="add-chord-button">
+                      +
+                    </button>
+                  </div>
                 </div>
               );
             })
@@ -187,6 +238,34 @@ export default function Chords(props) {
         {state.major === true ? <h1>major</h1> : null}
         {state.minor === true ? <h1>minor</h1> : null}
         {state.scale !== "More Scales..." ? <h1>{state.scale}</h1> : null}
+        {/* {state.build === true ? ( */}
+        <div className="dropzone droppable">
+          <h1 className="dropzone-title">Progression Builder</h1>
+          {state.builder.length > 0
+            ? state.builder.map((option, i) => {
+                let notes = Chord.get(option).notes.join(", ");
+                return (
+                  <div key={i} className="chord-card" draggable="true">
+                    <h1 className="card-title">{option}</h1>
+                    {/* <p className="card-notes">{notes}</p>
+                    <div className="card-bottom">
+                      <ChordPlayers
+                        className="play-button"
+                        mode={props.mode}
+                        chord={option}
+                      /> */}
+                    {/* <button
+                        onClick={addToBuilder}
+                        className="add-chord-button"
+                      >
+                        +
+                      </button> */}
+                    {/* </div> */}
+                  </div>
+                );
+              })
+            : null}
+        </div>
       </div>
     </div>
   );

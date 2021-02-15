@@ -260,8 +260,13 @@ body {
 }
 
 .dropzone {
-  position: absolute;
-  top: 84vh;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  top: 2vh;
+  /* bottom: 0vh; */
   width: 95vw;
   height: 10vh;
   background-color: grey;
@@ -271,4 +276,16 @@ body {
 
 .button {
   padding: 2rem;
+}
+
+.card-bottom {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+}
+
+.add-chord-button {
+  margin: auto;
+  margin-left: 1rem;
+  margin-bottom: 0.7rem;
 }

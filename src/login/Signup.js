@@ -29,6 +29,12 @@ export default class Signup extends Component {
             <input
               className="loginput"
               type="text"
+              name="email"
+              placeholder="Email Address"
+            />
+            <input
+              className="loginput"
+              type="text"
               name="password"
               placeholder="Password"
             />
