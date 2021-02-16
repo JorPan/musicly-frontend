@@ -155,6 +155,10 @@ export default function Chords(props) {
     console.log(`Saving ${state.builder}`);
   };
 
+  const clearProgression = (event) => {
+    setState({ ...state, builder: [] });
+  };
+
   return (
     <div className="chord-playground">
       {props.mode === "magic" ? (
@@ -349,12 +353,20 @@ export default function Chords(props) {
           <div>
             <h1 className="dropzone-title">Progression Builder</h1>
             {state.builder.length > 0 ? (
-              <button
-                onClick={saveProgression}
-                className="save-progression-button"
-              >
-                Save
-              </button>
+              <div>
+                <button
+                  onClick={saveProgression}
+                  className="save-progression-button"
+                >
+                  Save
+                </button>
+                <button
+                  onClick={clearProgression}
+                  className="save-progression-button"
+                >
+                  Clear
+                </button>
+              </div>
             ) : null}
           </div>
 
