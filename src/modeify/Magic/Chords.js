@@ -109,38 +109,23 @@ export default function Chords(props) {
     });
   };
 
-  const removeFromBuilder = (event) => {
-    let filteredProgression = state.builder.filter(
-      (chordInProgression) => event.target !== chordInProgression
-    );
-    setState({ ...state, builder: filteredProgression });
-  };
-
   const addToBuilder = (event) => {
     let currentCard = [event.target.parentNode.parentNode];
     let currentCardName = currentCard[0].children[0].innerText;
-    let currentCardNotes = currentCard[0].children[1].innerText;
-    let currentCardPlayer = <ChordPlayers chord={currentCardName} />;
-    console.log(
-      currentCard,
-      currentCardName,
-      currentCardNotes,
-      currentCardPlayer
-    );
-
-    let newFavorite = (
-      <div className="chord-card" draggable="true">
-        <h1 className="card-title">{currentCardName}</h1>
-        <p className="card-notes">{currentCardNotes}</p>
-        <div className="card-bottom">
-          <ChordPlayers chord={currentCardName} />
-          <button onClick={removeFromBuilder} className="add-chord-button">
-            -
-          </button>
-        </div>
-      </div>
-    );
+    // let currentCardNotes = currentCard[0].children[1].innerText;
+    let newFavorite = currentCardName;
     setState({ ...state, builder: [...state.builder, newFavorite] });
+  };
+
+  const removeFromBuilder = (event) => {
+    let currentBuilder = [...state.builder];
+    let cardToRemove = [event.target.parentNode.parentNode];
+    let chordToRemove = cardToRemove[0].children[0].innerText;
+
+    let filteredProgression = currentBuilder.filter(
+      (chordInProgression) => chordInProgression !== chordToRemove
+    );
+    setState({ ...state, extensions: false, builder: filteredProgression });
   };
 
   return (
@@ -238,7 +223,6 @@ export default function Chords(props) {
         {state.major === true ? <h1>major</h1> : null}
         {state.minor === true ? <h1>minor</h1> : null}
         {state.scale !== "More Scales..." ? <h1>{state.scale}</h1> : null}
-        {/* {state.build === true ? ( */}
         <div className="dropzone droppable">
           <h1 className="dropzone-title">Progression Builder</h1>
           {state.builder.length > 0
@@ -247,20 +231,16 @@ export default function Chords(props) {
                 return (
                   <div key={i} className="chord-card" draggable="true">
                     <h1 className="card-title">{option}</h1>
-                    {/* <p className="card-notes">{notes}</p>
+                    <p className="card-notes">{notes}</p>
                     <div className="card-bottom">
-                      <ChordPlayers
-                        className="play-button"
-                        mode={props.mode}
-                        chord={option}
-                      /> */}
-                    {/* <button
-                        onClick={addToBuilder}
+                      <ChordPlayers mode="magic" chord={option} />
+                      <button
+                        onClick={removeFromBuilder}
                         className="add-chord-button"
                       >
-                        +
-                      </button> */}
-                    {/* </div> */}
+                        -
+                      </button>
+                    </div>
                   </div>
                 );
               })
