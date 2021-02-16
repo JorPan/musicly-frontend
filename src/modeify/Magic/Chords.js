@@ -125,7 +125,7 @@ export default function Chords(props) {
     let filteredProgression = currentBuilder.filter(
       (chordInProgression) => chordInProgression !== chordToRemove
     );
-    setState({ ...state, extensions: false, builder: filteredProgression });
+    setState({ ...state, builder: filteredProgression });
   };
 
   return (
@@ -203,7 +203,7 @@ export default function Chords(props) {
           ? chordOptions.map((option, i) => {
               let notes = Chord.get(option).notes.join(", ");
               return (
-                <div className="chord-card" draggable="true">
+                <div key={i} className="chord-card" draggable="true">
                   <h1 className="card-title">{option}</h1>
                   <p className="card-notes">{notes}</p>
                   <div className="card-bottom">
@@ -229,7 +229,7 @@ export default function Chords(props) {
             ? state.builder.map((option, i) => {
                 let notes = Chord.get(option).notes.join(", ");
                 return (
-                  <div key={i} className="chord-card" draggable="true">
+                  <div key={"card"[i]} className="chord-card" draggable="true">
                     <h1 className="card-title">{option}</h1>
                     <p className="card-notes">{notes}</p>
                     <div className="card-bottom">
