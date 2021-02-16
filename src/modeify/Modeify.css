@@ -296,7 +296,17 @@ body {
 
 .scale-note {
   font-family: "Fjalla One", sans-serif;
+  font-size: 25px;
   margin: 2rem;
+}
+.selected-scale-note {
+  font-family: "Fjalla One", sans-serif;
+  font-size: 25px;
+  margin: 2rem;
+}
+
+.selected-scale-note:hover {
+  cursor: pointer;
 }
 
 .scale-note:hover {
@@ -304,7 +314,11 @@ body {
 }
 
 .chord-suggestions {
-  /* width: 50vw; */
   display: flex;
   flex-flow: row wrap;
+}
+
+.save-progression-button {
+  margin-left: 1rem;
+  margin-top: -1rem;
 }

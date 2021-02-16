@@ -222,20 +222,3 @@ const MainMode = () => {
 };
 
 export default MainMode;
-
-{
-  /* <div className="gimme">
-        <ins
-          className="scales_chords_api"
-          chord={state.chord}
-          instrument="piano"
-          nolink="true"
-        ></ins>
-        <ins
-          className="scales_chords_api"
-          chord={state.chord}
-          instrument="piano"
-          output="sound"
-        ></ins>
-      </div> */
-}

@@ -14,23 +14,6 @@ export default class Login extends Component {
         <h2 className="title">Login</h2>
         <div className="login">
           <form onSubmit={this.fakeLogin} className="login-form">
-            <TextField
-              label="Username"
-              type="text"
-              mt={10}
-              variant="outlined"
-              color="secondary"
-            />
-            <TextField
-              label="Password"
-              type="password"
-              mt={10}
-              variant="outlined"
-              color="secondary"
-            />
-            <Button type="submit" variant="outlined">
-              Login
-            </Button>
             <input
               className="loginput"
               type="text"

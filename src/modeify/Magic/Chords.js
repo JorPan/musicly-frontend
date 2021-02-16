@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
-// const Chord = require("sharp11").chord;
-import { Chord, Key } from "@tonaljs/tonal";
+import { Chord, Key, Scale } from "@tonaljs/tonal";
 import Dropdown from "react-dropdown";
 import { Button } from "@material-ui/core";
 import ChordPlayers from "./ChordPlayers";
+// const Scale = require("sharp11").scale;
 
 export default function Chords(props) {
   let [state, setState] = useState({
     extensions: false,
     scales: false,
     scale: "More Scales...",
+    selectedScale: [],
     major: false,
     minor: false,
     builder: [],
@@ -67,6 +68,7 @@ export default function Chords(props) {
   };
 
   const viewScale = (event) => {
+    let currentScale = Scale.get(`${key} ${event.value}`).notes;
     setState({
       ...state,
       scales: true,
@@ -74,6 +76,7 @@ export default function Chords(props) {
       major: false,
       extensions: false,
       scale: event.value,
+      selectedScale: currentScale,
     });
   };
 
@@ -96,6 +99,7 @@ export default function Chords(props) {
       minor: false,
       extensions: false,
       scale: "More Scales...",
+      scaleChords: [],
     });
   };
 
@@ -145,6 +149,10 @@ export default function Chords(props) {
     let minorChords = Key.minorKey(`${tempKey}`).natural.chords;
     let newChords = majorChords.concat(minorChords);
     setState({ ...state, scaleChords: newChords });
+  };
+
+  const saveProgression = (event) => {
+    console.log(`Saving ${state.builder}`);
   };
 
   return (
@@ -217,6 +225,18 @@ export default function Chords(props) {
           </div>
         </div>
       ) : null}
+      {state.scale !== "More Scales..." ? (
+        <div className="chord-suggestions">
+          <h1>{state.scale}</h1>
+          <div className="scale-notes">
+            {state.selectedScale.map((note, i) => (
+              <p key={i} className="selected-scale-note" onClick={changeKey}>
+                {note}
+              </p>
+            ))}
+          </div>
+        </div>
+      ) : null}
       <div className="chord-list">
         {state.extensions === true
           ? chordOptions.map((option, i) => {
@@ -243,8 +263,8 @@ export default function Chords(props) {
           <div className="chord-suggestions">
             <h1 className="title">Major</h1>
             <div className="scale-notes">
-              {scaleNotes.map((note) => (
-                <p className="scale-note" onClick={changeKey}>
+              {scaleNotes.map((note, i) => (
+                <p key={i} className="scale-note" onClick={changeKey}>
                   {note}
                 </p>
               ))}
@@ -274,8 +294,8 @@ export default function Chords(props) {
           <div className="chord-suggestions">
             <h1 className="title">Minor</h1>
             <div className="scale-notes">
-              {scaleNotes.map((note) => (
-                <p className="scale-note" onClick={changeKey}>
+              {scaleNotes.map((note, i) => (
+                <p key={i} className="scale-note" onClick={changeKey}>
                   {note}
                 </p>
               ))}
@@ -325,9 +345,19 @@ export default function Chords(props) {
           </div>
         ) : null}
 
-        {state.scale !== "More Scales..." ? <h1>{state.scale}</h1> : null}
         <div className="dropzone droppable">
-          <h1 className="dropzone-title">Progression Builder</h1>
+          <div>
+            <h1 className="dropzone-title">Progression Builder</h1>
+            {state.builder.length > 0 ? (
+              <button
+                onClick={saveProgression}
+                className="save-progression-button"
+              >
+                Save
+              </button>
+            ) : null}
+          </div>
+
           {state.builder.length > 0
             ? state.builder.map((option, i) => {
                 let notes = Chord.get(option).notes.join(", ");
