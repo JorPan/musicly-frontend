@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 // const Chord = require("sharp11").chord;
-import { Chord } from "@tonaljs/tonal";
+import { Chord, Key } from "@tonaljs/tonal";
 import Dropdown from "react-dropdown";
 import { Button } from "@material-ui/core";
 import ChordPlayers from "./ChordPlayers";
@@ -12,17 +12,18 @@ export default function Chords(props) {
     scale: "More Scales...",
     major: false,
     minor: false,
-    // build: false,
     builder: [],
   });
 
   let key;
+  let tempKey;
+  let tempChords;
   let chord;
   let chordOptions;
   let scaleOptions;
   let majorminor;
-  // let scaleNotes;
-  // let scaleChords;
+  let scaleNotes;
+  let scaleChords;
 
   if (props.mode === "magic") {
     chord = Chord.detect(props.chord);
@@ -59,7 +60,6 @@ export default function Chords(props) {
       extensions: !state.extensions,
       minor: false,
       major: false,
-      // build: true,
       scale: "More Scales...",
     });
   };
@@ -70,7 +70,6 @@ export default function Chords(props) {
       scales: true,
       minor: false,
       major: false,
-      // build: false,
       extensions: false,
       scale: event.value,
     });
@@ -93,7 +92,6 @@ export default function Chords(props) {
       major: !state.major,
       minor: false,
       extensions: false,
-      // build: true,
       scale: "More Scales...",
     });
   };
@@ -104,7 +102,6 @@ export default function Chords(props) {
       minor: !state.minor,
       major: false,
       extensions: false,
-      // build: true,
       scale: "More Scales...",
     });
   };
@@ -126,6 +123,22 @@ export default function Chords(props) {
       (chordInProgression) => chordInProgression !== chordToRemove
     );
     setState({ ...state, builder: filteredProgression });
+  };
+
+  if (state.major === true) {
+    scaleNotes = Key.majorKey(`${key}`).scale;
+    tempChords = Key.majorKey(`${key}`).chords;
+    console.log(scaleNotes, tempChords);
+  }
+
+  if (state.minor === true) {
+    scaleNotes = Key.minorKey(`${key}`).natural.scale;
+    tempChords = Key.minorKey(`${key}`).natural.chords;
+    console.log(scaleNotes, tempChords);
+  }
+
+  const changeKey = (event) => {
+    console.log(key);
   };
 
   return (
@@ -220,8 +233,69 @@ export default function Chords(props) {
               );
             })
           : null}
-        {state.major === true ? <h1>major</h1> : null}
-        {state.minor === true ? <h1>minor</h1> : null}
+        {state.major === true ? (
+          <div className="chord-suggestions">
+            <h1 className="title">Major</h1>
+            <div className="scale-notes">
+              {scaleNotes.map((note) => (
+                <p className="scale-note" onClick={changeKey}>
+                  {note}
+                </p>
+              ))}
+            </div>
+            {tempChords.map((option, i) => {
+              let notes = Chord.get(option).notes.join(", ");
+              return (
+                <div key={i} className="chord-card" draggable="true">
+                  <h1 className="card-title">{option}</h1>
+                  <p className="card-notes">{notes}</p>
+                  <div className="card-bottom">
+                    <ChordPlayers
+                      className="play-button"
+                      mode={props.mode}
+                      chord={option}
+                    />
+                    <button onClick={addToBuilder} className="add-chord-button">
+                      +
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : null}
+        {state.minor === true ? (
+          <div className="chord-suggestions">
+            <h1 className="title">Minor</h1>
+            <div className="scale-notes">
+              {scaleNotes.map((note) => (
+                <p className="scale-note" onClick={changeKey}>
+                  {note}
+                </p>
+              ))}
+            </div>
+            {tempChords.map((option, i) => {
+              let notes = Chord.get(option).notes.join(", ");
+              return (
+                <div key={i} className="chord-card" draggable="true">
+                  <h1 className="card-title">{option}</h1>
+                  <p className="card-notes">{notes}</p>
+                  <div className="card-bottom">
+                    <ChordPlayers
+                      className="play-button"
+                      mode={props.mode}
+                      chord={option}
+                    />
+                    <button onClick={addToBuilder} className="add-chord-button">
+                      +
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : null}
+
         {state.scale !== "More Scales..." ? <h1>{state.scale}</h1> : null}
         <div className="dropzone droppable">
           <h1 className="dropzone-title">Progression Builder</h1>
