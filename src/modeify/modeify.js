@@ -22,10 +22,7 @@ const MainMode = () => {
     newNotes: false,
   });
 
-  let defaultOption = options[0];
-
   const soundSelect = (event) => {
-    console.log(event);
     setState({ ...state, sound: event.value });
   };
 
@@ -40,7 +37,7 @@ const MainMode = () => {
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("keyup", handleKeyUp);
     };
-  }, [state.notesPlaying]);
+  }, [state.notesPlaying, state.sound]);
 
   const getNoteFromKeyboardKey = (keyboardKey) => {
     return KeyboardMap[keyboardKey.toUpperCase()];
@@ -87,8 +84,7 @@ const MainMode = () => {
     setState({ ...state, chordBuilder: [], notesPlaying: [], mode: "ready" });
   };
 
-  const pauseChord = () => {
-    // window.removeEventListener("keydown", handleKeyDown);
+  const pauseChord = (event) => {
     window.removeEventListener("keyup", handleKeyUp);
     let chordName = Chord.detect(state.notesPlaying);
     if (chordName.length > 1) {
@@ -134,7 +130,7 @@ const MainMode = () => {
             className="sound-dropdown"
             options={options}
             onChange={soundSelect}
-            value={defaultOption}
+            // value={state.sound}
             placeholder="Select an option"
           />
         </div>

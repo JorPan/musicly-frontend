@@ -15,6 +15,7 @@ export default function Chords(props) {
     minor: false,
     builder: [],
     scaleChords: [],
+    progression: [],
   });
 
   let key;
@@ -25,7 +26,6 @@ export default function Chords(props) {
   let scaleOptions;
   let majorminor;
   let scaleNotes;
-  // let scaleChords = [];
 
   if (props.mode === "magic") {
     chord = Chord.detect(props.chord);
@@ -153,6 +153,8 @@ export default function Chords(props) {
 
   const saveProgression = (event) => {
     console.log(`Saving ${state.builder}`);
+    let currentBuild = state.builder;
+    setState({ ...state, progession: currentBuild, builder: [] });
   };
 
   const clearProgression = (event) => {
@@ -391,6 +393,10 @@ export default function Chords(props) {
               })
             : null}
         </div>
+        {/* <h1 className="title">my progressions</h1>
+        {state.progession.length > 2
+          ? state.progression.map((chord) => <p>{chord}</p>)
+          : null} */}
       </div>
     </div>
   );
