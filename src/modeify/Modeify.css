@@ -290,6 +290,10 @@ body {
   margin-bottom: 0.7rem;
 }
 
+.scale-notes {
+  display: flex;
+}
+
 .scale-note {
   font-family: "Fjalla One", sans-serif;
   margin: 2rem;
@@ -300,5 +304,7 @@ body {
 }
 
 .chord-suggestions {
+  /* width: 50vw; */
   display: flex;
+  flex-flow: row wrap;
 }

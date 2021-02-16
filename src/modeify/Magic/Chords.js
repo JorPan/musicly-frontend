@@ -13,6 +13,7 @@ export default function Chords(props) {
     major: false,
     minor: false,
     builder: [],
+    scaleChords: [],
   });
 
   let key;
@@ -23,7 +24,7 @@ export default function Chords(props) {
   let scaleOptions;
   let majorminor;
   let scaleNotes;
-  let scaleChords;
+  // let scaleChords = [];
 
   if (props.mode === "magic") {
     chord = Chord.detect(props.chord);
@@ -61,6 +62,7 @@ export default function Chords(props) {
       minor: false,
       major: false,
       scale: "More Scales...",
+      scaleChords: [],
     });
   };
 
@@ -83,6 +85,7 @@ export default function Chords(props) {
       major: false,
       build: true,
       scale: "More Scales...",
+      scaleChords: [],
     });
   };
 
@@ -103,6 +106,7 @@ export default function Chords(props) {
       major: false,
       extensions: false,
       scale: "More Scales...",
+      scaleChords: [],
     });
   };
 
@@ -128,17 +132,19 @@ export default function Chords(props) {
   if (state.major === true) {
     scaleNotes = Key.majorKey(`${key}`).scale;
     tempChords = Key.majorKey(`${key}`).chords;
-    console.log(scaleNotes, tempChords);
   }
 
   if (state.minor === true) {
     scaleNotes = Key.minorKey(`${key}`).natural.scale;
     tempChords = Key.minorKey(`${key}`).natural.chords;
-    console.log(scaleNotes, tempChords);
   }
 
   const changeKey = (event) => {
-    console.log(key);
+    tempKey = event.target.innerText;
+    let majorChords = Key.majorKey(`${tempKey}`).chords;
+    let minorChords = Key.minorKey(`${tempKey}`).natural.chords;
+    let newChords = majorChords.concat(minorChords);
+    setState({ ...state, scaleChords: newChords });
   };
 
   return (
@@ -275,6 +281,29 @@ export default function Chords(props) {
               ))}
             </div>
             {tempChords.map((option, i) => {
+              let notes = Chord.get(option).notes.join(", ");
+              return (
+                <div key={i} className="chord-card" draggable="true">
+                  <h1 className="card-title">{option}</h1>
+                  <p className="card-notes">{notes}</p>
+                  <div className="card-bottom">
+                    <ChordPlayers
+                      className="play-button"
+                      mode={props.mode}
+                      chord={option}
+                    />
+                    <button onClick={addToBuilder} className="add-chord-button">
+                      +
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : null}
+        {state.scaleChords.length > 0 ? (
+          <div className="chord-suggestions">
+            {state.scaleChords.map((option, i) => {
               let notes = Chord.get(option).notes.join(", ");
               return (
                 <div key={i} className="chord-card" draggable="true">
