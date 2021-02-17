@@ -212,16 +212,17 @@ body {
 }
 
 .chord-card {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(231, 218, 218);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 170px;
   height: 95px;
-  margin: 5px;
+  margin: 8px;
+  padding: 5px;
   border-radius: 20px;
-  box-shadow: 0 2px 1px 1px rgb(189, 189, 189);
+  box-shadow: 0 2px 1px 1px rgb(192, 192, 192);
 }
 
 .chord-card:hover {
@@ -250,11 +251,14 @@ body {
 
 .play-button {
   margin-bottom: 10px;
+  font-family: "Fjalla One", sans-serif;
+  padding: 7px;
+  border-radius: 10px;
 }
 
 .dropzone-title {
   font-family: "Fjalla One", sans-serif;
-  color: white;
+  color: rgb(116, 0, 0);
   font-size: 30px;
   margin-left: 1rem;
 }
@@ -265,11 +269,11 @@ body {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  top: 2vh;
+  top: 0.5vh;
   /* bottom: 0vh; */
   width: 95vw;
   height: 10vh;
-  background-color: rgb(197, 197, 197);
+  background-color: rgb(230, 230, 230);
   border-radius: 20px;
   box-shadow: 0 1px 1px 1px rgb(44, 44, 44);
 }
@@ -288,6 +292,8 @@ body {
   margin: auto;
   margin-left: 1rem;
   margin-bottom: 0.7rem;
+  padding: 5px;
+  border-radius: 10px;
 }
 
 .scale-notes {
