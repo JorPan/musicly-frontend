@@ -35,7 +35,7 @@ export default function ChordPlayers(props) {
   return (
     <div className="render-chords">
       <button className="play-button" onClick={playChord}>
-        preview
+        Preview
       </button>
     </div>
   );
