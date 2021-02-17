@@ -167,7 +167,7 @@ img:hover {
   height: 4.75vh;
   width: 100vw;
   position: absolute;
-  top: 95vh;
+  bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;

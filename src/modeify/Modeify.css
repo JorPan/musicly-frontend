@@ -252,6 +252,7 @@ body {
 .play-button {
   margin-bottom: 10px;
   font-family: "Fjalla One", sans-serif;
+  font-size: 15px;
   padding: 7px;
   border-radius: 10px;
 }
@@ -293,7 +294,7 @@ body {
   margin-left: 1rem;
   margin-bottom: 0.7rem;
   padding: 5px;
-  border-radius: 10px;
+  border-radius: 7px;
 }
 
 .scale-notes {
@@ -325,6 +326,9 @@ body {
 }
 
 .save-progression-button {
+  font-family: "Fjalla One", sans-serif;
+  font-size: 20px;
   margin-left: 1rem;
   margin-top: -1rem;
+  border-radius: 10px;
 }
