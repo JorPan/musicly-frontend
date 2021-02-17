@@ -231,6 +231,48 @@ export default function Chords(props) {
           </div>
         </div>
       ) : null}
+      <div className="dropzone droppable">
+        <div>
+          <h1 className="dropzone-title">Progression Builder</h1>
+          {state.builder.length > 0 ? (
+            <div>
+              <button
+                onClick={saveProgression}
+                className="save-progression-button"
+              >
+                Save
+              </button>
+              <button
+                onClick={clearProgression}
+                className="save-progression-button"
+              >
+                Clear
+              </button>
+            </div>
+          ) : null}
+        </div>
+
+        {state.builder.length > 0
+          ? state.builder.map((option, i) => {
+              let notes = Chord.get(option).notes.join(", ");
+              return (
+                <div key={"card"[i]} className="chord-card" draggable="true">
+                  <h1 className="card-title">{option}</h1>
+                  <p className="card-notes">{notes}</p>
+                  <div className="card-bottom">
+                    <ChordPlayers mode="magic" chord={option} />
+                    <button
+                      onClick={removeFromBuilder}
+                      className="add-chord-button"
+                    >
+                      -
+                    </button>
+                  </div>
+                </div>
+              );
+            })
+          : null}
+      </div>
       {state.scale !== "More Scales..." ? (
         <div className="chord-suggestions">
           <h1>{state.scale}</h1>
@@ -267,7 +309,7 @@ export default function Chords(props) {
           : null}
         {state.major === true ? (
           <div className="chord-suggestions">
-            <h1 className="title">Major</h1>
+            <h1 className="title key-name">Major</h1>
             <div className="scale-notes">
               {scaleNotes.map((note, i) => (
                 <p key={i} className="scale-note" onClick={changeKey}>
@@ -298,7 +340,7 @@ export default function Chords(props) {
         ) : null}
         {state.minor === true ? (
           <div className="chord-suggestions">
-            <h1 className="title">Minor</h1>
+            <h1 className="title key-name">Minor</h1>
             <div className="scale-notes">
               {scaleNotes.map((note, i) => (
                 <p key={i} className="scale-note" onClick={changeKey}>
@@ -351,48 +393,6 @@ export default function Chords(props) {
           </div>
         ) : null}
 
-        <div className="dropzone droppable">
-          <div>
-            <h1 className="dropzone-title">Progression Builder</h1>
-            {state.builder.length > 0 ? (
-              <div>
-                <button
-                  onClick={saveProgression}
-                  className="save-progression-button"
-                >
-                  Save
-                </button>
-                <button
-                  onClick={clearProgression}
-                  className="save-progression-button"
-                >
-                  Clear
-                </button>
-              </div>
-            ) : null}
-          </div>
-
-          {state.builder.length > 0
-            ? state.builder.map((option, i) => {
-                let notes = Chord.get(option).notes.join(", ");
-                return (
-                  <div key={"card"[i]} className="chord-card" draggable="true">
-                    <h1 className="card-title">{option}</h1>
-                    <p className="card-notes">{notes}</p>
-                    <div className="card-bottom">
-                      <ChordPlayers mode="magic" chord={option} />
-                      <button
-                        onClick={removeFromBuilder}
-                        className="add-chord-button"
-                      >
-                        -
-                      </button>
-                    </div>
-                  </div>
-                );
-              })
-            : null}
-        </div>
         {/* <h1 className="title">my progressions</h1>
         {state.progession.length > 2
           ? state.progression.map((chord) => <p>{chord}</p>)

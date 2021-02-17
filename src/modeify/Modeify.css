@@ -196,6 +196,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
 
 .magic-dropdowns {
@@ -212,7 +213,7 @@ body {
 }
 
 .chord-card {
-  background-color: rgb(231, 218, 218);
+  background-color: rgb(236, 223, 223);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -271,8 +272,8 @@ body {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  top: 0.5vh;
-  /* bottom: 0vh; */
+  /* top: 0.5vh; */
+  bottom: 0.5vh;
   width: 95vw;
   height: 10vh;
   background-color: rgb(230, 230, 230);
@@ -300,12 +301,20 @@ body {
 
 .scale-notes {
   display: flex;
+  align-items: center;
 }
 
 .scale-note {
+  text-align: center;
   font-family: "Fjalla One", sans-serif;
-  font-size: 25px;
-  margin: 2rem;
+  font-size: 30px;
+  height: 33px;
+  width: 33px;
+  background-color: rgb(236, 223, 223);
+  border-radius: 10px;
+  margin: 0.1rem;
+  padding: 0.5rem;
+  box-shadow: 0 2px 1px 1px rgb(192, 192, 192);
 }
 .selected-scale-note {
   font-family: "Fjalla One", sans-serif;
@@ -332,4 +341,9 @@ body {
   margin-left: 1rem;
   margin-top: -1rem;
   border-radius: 10px;
+}
+
+.key-name {
+  position: absolute;
+  margin-top: 2px;
 }

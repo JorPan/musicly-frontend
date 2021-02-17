@@ -12,6 +12,10 @@ import Resources from "./home/Resources";
 import Modify from "./modeify/modeify";
 
 class App extends Component {
+  state = {
+    user: "",
+  };
+
   render() {
     return (
       <div className="App">
@@ -23,7 +27,10 @@ class App extends Component {
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
           <Route path="/resources" component={Resources} />
-          <Route path="/modeify" component={Modify} />
+          <Route
+            path="/modeify"
+            render={(props) => <Modify {...props} user={this.state.user} />}
+          />
           <Redirect to="/" />
         </Switch>
         <Footer />
