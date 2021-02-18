@@ -6,6 +6,10 @@ body {
   background-color: rgb(231, 218, 218);
 }
 
+.sound-dropdown {
+  width: 200px;
+}
+
 .piano {
   display: flex;
   flex-direction: column;
@@ -99,10 +103,6 @@ body {
 
 .current-mode {
   margin-left: 10px;
-}
-
-.sound-dropdown {
-  width: 200px;
 }
 
 .current-chord-div {

@@ -210,7 +210,7 @@ export default function Chords(props) {
             </div>
             <div className="button">
               <Dropdown
-                className="sound-dropdown"
+                className="scale-dropdown"
                 options={scaleOptions}
                 value={state.scale}
                 onChange={viewScale}
