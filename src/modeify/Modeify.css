@@ -7,7 +7,17 @@ body {
 }
 
 .sound-dropdown {
-  width: 200px;
+  position: fixed;
+  top: 1vh;
+  width: 12vw;
+  left: 23vw;
+}
+
+.modeify-page-logo {
+  position: fixed;
+  top: 0vh;
+  left: 42vw;
+  width: 12vw;
 }
 
 .piano {
@@ -94,7 +104,7 @@ body {
   justify-content: center;
   align-items: center;
   top: 0;
-  z-index: 10;
+  z-index: 1000;
 }
 
 .space {
@@ -106,9 +116,8 @@ body {
 }
 
 .current-chord-div {
-  margin-top: 20px;
-  padding: 1rem;
-  margin-left: 1rem;
+  position: fixed;
+  left: 23vw;
 }
 
 .current-chord-button {
@@ -120,11 +129,12 @@ body {
 }
 
 .pause-chord-button {
+  z-index: 100;
   font-family: "Montserrat", sans-serif;
   font-weight: 1000;
   position: absolute;
-  left: 40px;
-  top: 80px;
+  /* left: 40px;
+  top: 80px; */
   border-radius: 50%;
   width: 150px;
   height: 30px;
@@ -132,17 +142,22 @@ body {
   background-color: transparent;
 }
 
+.pause-chord-button:hover {
+  cursor: pointer;
+}
+
 .instructions1 {
   font-family: "Noto Sans KR", sans-serif;
   position: fixed;
-  top: 1vh;
-  left: 49vw;
+  top: 10vh;
+  left: 55vw;
 }
 
 .instructions3 {
   font-family: "Noto Sans KR", sans-serif;
+  font-size: 30px;
   position: fixed;
-  top: 1.2vh;
+  top: 4vh;
   margin: auto;
 }
 
@@ -156,14 +171,17 @@ body {
 
 .current-note {
   font-family: "Noto Sans KR", sans-serif;
-  font-weight: bolder;
+  font-size: 40px;
+  /* top: 10px; */
   padding: 1rem;
   height: 10px;
+  margin-top: 50px;
 }
 
 .clear-save-buttons {
   position: fixed;
-  top: 7vh;
+  top: 1vh;
+  left: 39vw;
 }
 
 .chord-playground {
@@ -177,10 +195,13 @@ body {
 
 .chord-name {
   color: rgb(55, 139, 55);
-  font-size: 27px;
+  font-size: 100px;
   font-weight: bolder;
-  padding-right: 10px;
-  margin-bottom: 0px;
+  position: fixed;
+  top: -7vh;
+  right: 25vw;
+  /* padding-right: 10px;
+  margin-bottom: 10px; */
 }
 
 .explore {
@@ -278,17 +299,18 @@ body {
   color: rgb(116, 0, 0);
   font-size: 30px;
   margin-left: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .dropzone {
   position: relative;
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   justify-content: flex-start;
   align-items: center;
   bottom: 0.5vh;
   width: 95vw;
-  height: 15vh;
   background-color: rgba(245, 245, 245, 0.5);
   border-radius: 20px;
   box-shadow: 0 1px 1px 1px rgb(44, 44, 44);
@@ -373,7 +395,7 @@ body {
   font-size: 20px;
   font-weight: 600;
   margin-left: 1rem;
-  margin-top: -1rem;
+  margin-top: -5rem;
   border-radius: 10px;
   background-color: transparent;
   cursor: pointer;

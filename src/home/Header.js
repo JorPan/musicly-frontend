@@ -12,6 +12,7 @@ export default function Header() {
       color: "white",
       height: 40,
       margin: 10,
+      opacity: 0.7,
       boxShadow: "0 5px 5px 1px #750000",
     },
     label: {
@@ -26,6 +27,7 @@ export default function Header() {
       border: 0,
       color: "white",
       height: 40,
+      opacity: 0.7,
       boxShadow: "0 5px 5px 1px #750000",
     },
     label: {
