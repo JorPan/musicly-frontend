@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { s11, note, chord, scale } from "sharp11";
 import audio from "sharp11-web-audio";
 import { Chord } from "@tonaljs/tonal";
+import { Button } from "@material-ui/core";
 
 export default function ChordPlayers(props) {
   const [state, setState] = useState({

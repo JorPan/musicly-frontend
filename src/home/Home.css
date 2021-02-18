@@ -5,13 +5,17 @@ body {
 }
 
 .header {
+  display: flex;
+  flex-flow: row wrap;
+  position: fixed;
+  width: 100vw;
   background-color: white;
   font-family: "Noto Sans KR", sans-serif;
-  display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 12vh;
+  height: 15vh;
   box-shadow: 0 3px 3px 3px #611212;
+  z-index: 5;
 }
 
 .header-logo {
@@ -138,8 +142,9 @@ img:hover {
   font-size: 17px;
   display: flex;
   flex-direction: row;
-  padding-right: 10px;
-  margin-top: -5vh;
+  justify-content: flex-end;
+  padding-right: 1vw;
+  margin-top: -10vh;
 }
 
 .logo:hover {
@@ -163,10 +168,10 @@ img:hover {
 }
 
 .footer {
+  position: fixed;
   background-color: rgb(116, 0, 0);
   height: 4.75vh;
   width: 100vw;
-  position: absolute;
   bottom: 0;
   display: flex;
   justify-content: center;

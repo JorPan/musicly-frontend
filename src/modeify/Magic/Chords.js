@@ -273,9 +273,10 @@ export default function Chords(props) {
             })
           : null}
       </div>
+
       {state.scale !== "More Scales..." ? (
         <div className="chord-suggestions">
-          <h1>{state.scale}</h1>
+          <h1 className="title scale-name">{state.scale}</h1>
           <div className="scale-notes">
             {state.selectedScale.map((note, i) => (
               <p key={i} className="selected-scale-note" onClick={changeKey}>
@@ -308,9 +309,9 @@ export default function Chords(props) {
             })
           : null}
         {state.major === true ? (
-          <div className="chord-suggestions">
-            <h1 className="title key-name">Major</h1>
+          <div className="m-chord-suggestions">
             <div className="scale-notes">
+              <h1 className="title key-name">Major</h1>
               {scaleNotes.map((note, i) => (
                 <p key={i} className="scale-note" onClick={changeKey}>
                   {note}
@@ -339,9 +340,9 @@ export default function Chords(props) {
           </div>
         ) : null}
         {state.minor === true ? (
-          <div className="chord-suggestions">
-            <h1 className="title key-name">Minor</h1>
+          <div className="m-chord-suggestions">
             <div className="scale-notes">
+              <h1 className="title key-name">Minor</h1>
               {scaleNotes.map((note, i) => (
                 <p key={i} className="scale-note" onClick={changeKey}>
                   {note}
@@ -392,11 +393,6 @@ export default function Chords(props) {
             })}
           </div>
         ) : null}
-
-        {/* <h1 className="title">my progressions</h1>
-        {state.progession.length > 2
-          ? state.progression.map((chord) => <p>{chord}</p>)
-          : null} */}
       </div>
     </div>
   );
