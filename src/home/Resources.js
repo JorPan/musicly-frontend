@@ -9,10 +9,6 @@ export default function Resources() {
         better music and keep better track of their growth.
       </p>
       <p>Sharp11 and Tonal.JS were utilized for music theory</p>
-      <p>
-        Tonal and Scales-Chords-API were utilized their sound libraries and
-        SoundFonts.
-      </p>
     </div>
   );
 }
