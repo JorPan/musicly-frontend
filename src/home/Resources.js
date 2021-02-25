@@ -8,7 +8,7 @@ export default function Resources() {
         Music.Ly is a collection of web apps designed to help musicians write
         better music and keep better track of their growth.
       </p>
-      <p>Sharp11 and Tonal.JS were utilized for music theory</p>
+      <p>Sharp11 and Tonal.JS were utilized for music theory.</p>
     </div>
   );
 }
