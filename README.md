@@ -31,11 +31,11 @@ Frontend
 - Run npm install to get all dependencies.
 - Run npm start to start the server, and press 'y' if prompted to use a different port. 
 - This will automatically open the app in your browser. 
-- You do NOT need to utilize the back end to use this app. The backend is solely for saving chords and progressions locally. 
+- You don't need to utilize the back end to use this app locally!
 
 ## Instructions
 
-Once logged in, users will see several options - click on Mode-ify. This is the name of the chord & progression builder application. 
+Once opening the app, users will see several options - click on Mode-ify. This is the name of the chord & progression builder application. 
 
 Users will be instantly met by a piano keyboard that maps to their computer keyboard. There is a sound drop down with more than 120 sounds available to play, I recommend sticking with piano for chords.
 
