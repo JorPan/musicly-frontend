@@ -11,7 +11,7 @@ The main feature is a piano that can be played on your computer keyboard, with a
 
 ## Inspiration
 
-Music theory is HARD. There are over 4,000 recognized chords before we even get into voicings. There are 168 scales to choose from. This leads to a nearly infinite number of possibilities, yet we tend to hear a lot of the same chord progressions again and again.  
+Music theory is HARD. There are over 4,000 recognized chords before we even get into voicings. There are 168 scales to choose from. This leads to a nearly infinite number of possibilities, yet we tend to hear a lot of the same chord progressions again and again.  Mode-ify helps musicians break out of the norm by offering more complex chords, and chord suggestions to go along with other selected chords. Have fun, and explore! 
 
 ## Technologies
 
