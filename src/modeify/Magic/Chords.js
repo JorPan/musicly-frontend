@@ -3,6 +3,7 @@ import { Chord, Key, Scale } from "@tonaljs/tonal";
 import Dropdown from "react-dropdown";
 import { Button } from "@material-ui/core";
 import ChordPlayers from "./ChordPlayers";
+import ChordCard from "./ChordCard";
 // const Scale = require("sharp11").scale;
 
 export default function Chords(props) {
@@ -167,7 +168,7 @@ export default function Chords(props) {
         <div className="magic-section">
           <p className="title key-title">Key: {key}</p>
           <p className="title key-title">{majorminor}</p>
-          <div className="chord-card" draggable="true">
+          {/* <div className="chord-card" draggable="true">
             <h1 className="card-title">{chord}</h1>
             <p className="card-notes">{props.notes.join(", ")}</p>
             <div className="card-bottom">
@@ -176,7 +177,14 @@ export default function Chords(props) {
                 +
               </button>
             </div>
-          </div>
+          </div> */}
+          <ChordCard
+            chord={chord}
+            notes={props.notes.join(", ")}
+            mode={props.mode}
+            handleClick={addToBuilder}
+            plusOrMinus="+"
+          />
           <div className="magic-dropdowns">
             <h1 className="explore">Explore:</h1>
             <div className="button">
@@ -256,19 +264,26 @@ export default function Chords(props) {
           ? state.builder.map((option, i) => {
               let notes = Chord.get(option).notes.join(", ");
               return (
-                <div key={"card"[i]} className="chord-card" draggable="true">
-                  <h1 className="card-title">{option}</h1>
-                  <p className="card-notes">{notes}</p>
-                  <div className="card-bottom">
-                    <ChordPlayers mode="magic" chord={option} />
-                    <button
-                      onClick={removeFromBuilder}
-                      className="add-chord-button"
-                    >
-                      -
-                    </button>
-                  </div>
-                </div>
+                // <div key={"card"[i]} className="chord-card" draggable="true">
+                //   <h1 className="card-title">{option}</h1>
+                //   <p className="card-notes">{notes}</p>
+                //   <div className="card-bottom">
+                //     <ChordPlayers mode="magic" chord={option} />
+                //     <button
+                //       onClick={removeFromBuilder}
+                //       className="add-chord-button"
+                //     >
+                //       -
+                //     </button>
+                //   </div>
+                // </div>
+                <ChordCard
+                  chord={chord}
+                  notes={props.notes.join(", ")}
+                  mode={props.mode}
+                  handleClick={removeFromBuilder}
+                  plusOrMinus="-"
+                />
               );
             })
           : null}
