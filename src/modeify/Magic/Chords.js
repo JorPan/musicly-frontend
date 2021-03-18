@@ -168,16 +168,6 @@ export default function Chords(props) {
         <div className="magic-section">
           <p className="title key-title">Key: {key}</p>
           <p className="title key-title">{majorminor}</p>
-          {/* <div className="chord-card" draggable="true">
-            <h1 className="card-title">{chord}</h1>
-            <p className="card-notes">{props.notes.join(", ")}</p>
-            <div className="card-bottom">
-              <ChordPlayers mode={props.mode} chord={chord} />
-              <button onClick={addToBuilder} className="add-chord-button">
-                +
-              </button>
-            </div>
-          </div> */}
           <ChordCard
             chord={chord}
             notes={props.notes.join(", ")}
@@ -264,22 +254,9 @@ export default function Chords(props) {
           ? state.builder.map((option, i) => {
               let notes = Chord.get(option).notes.join(", ");
               return (
-                // <div key={"card"[i]} className="chord-card" draggable="true">
-                //   <h1 className="card-title">{option}</h1>
-                //   <p className="card-notes">{notes}</p>
-                //   <div className="card-bottom">
-                //     <ChordPlayers mode="magic" chord={option} />
-                //     <button
-                //       onClick={removeFromBuilder}
-                //       className="add-chord-button"
-                //     >
-                //       -
-                //     </button>
-                //   </div>
-                // </div>
                 <ChordCard
-                  chord={chord}
-                  notes={props.notes.join(", ")}
+                  chord={option}
+                  notes={notes}
                   mode={props.mode}
                   handleClick={removeFromBuilder}
                   plusOrMinus="-"
@@ -306,20 +283,13 @@ export default function Chords(props) {
           ? chordOptions.map((option, i) => {
               let notes = Chord.get(option).notes.join(", ");
               return (
-                <div key={i} className="chord-card" draggable="true">
-                  <h1 className="card-title">{option}</h1>
-                  <p className="card-notes">{notes}</p>
-                  <div className="card-bottom">
-                    <ChordPlayers
-                      className="play-button"
-                      mode={props.mode}
-                      chord={option}
-                    />
-                    <button onClick={addToBuilder} className="add-chord-button">
-                      +
-                    </button>
-                  </div>
-                </div>
+                <ChordCard
+                  chord={option}
+                  notes={notes}
+                  mode={props.mode}
+                  handleClick={addToBuilder}
+                  plusOrMinus="+"
+                />
               );
             })
           : null}
@@ -336,20 +306,13 @@ export default function Chords(props) {
             {tempChords.map((option, i) => {
               let notes = Chord.get(option).notes.join(", ");
               return (
-                <div key={i} className="chord-card" draggable="true">
-                  <h1 className="card-title">{option}</h1>
-                  <p className="card-notes">{notes}</p>
-                  <div className="card-bottom">
-                    <ChordPlayers
-                      className="play-button"
-                      mode={props.mode}
-                      chord={option}
-                    />
-                    <button onClick={addToBuilder} className="add-chord-button">
-                      +
-                    </button>
-                  </div>
-                </div>
+                <ChordCard
+                  chord={option}
+                  notes={notes}
+                  mode={props.mode}
+                  handleClick={addToBuilder}
+                  plusOrMinus="+"
+                />
               );
             })}
           </div>
@@ -367,20 +330,13 @@ export default function Chords(props) {
             {tempChords.map((option, i) => {
               let notes = Chord.get(option).notes.join(", ");
               return (
-                <div key={i} className="chord-card" draggable="true">
-                  <h1 className="card-title">{option}</h1>
-                  <p className="card-notes">{notes}</p>
-                  <div className="card-bottom">
-                    <ChordPlayers
-                      className="play-button"
-                      mode={props.mode}
-                      chord={option}
-                    />
-                    <button onClick={addToBuilder} className="add-chord-button">
-                      +
-                    </button>
-                  </div>
-                </div>
+                <ChordCard
+                  chord={option}
+                  notes={notes}
+                  mode={props.mode}
+                  handleClick={addToBuilder}
+                  plusOrMinus="+"
+                />
               );
             })}
           </div>
@@ -390,20 +346,13 @@ export default function Chords(props) {
             {state.scaleChords.map((option, i) => {
               let notes = Chord.get(option).notes.join(", ");
               return (
-                <div key={i} className="chord-card" draggable="true">
-                  <h1 className="card-title">{option}</h1>
-                  <p className="card-notes">{notes}</p>
-                  <div className="card-bottom">
-                    <ChordPlayers
-                      className="play-button"
-                      mode={props.mode}
-                      chord={option}
-                    />
-                    <button onClick={addToBuilder} className="add-chord-button">
-                      +
-                    </button>
-                  </div>
-                </div>
+                <ChordCard
+                  chord={option}
+                  notes={notes}
+                  mode={props.mode}
+                  handleClick={addToBuilder}
+                  plusOrMinus="+"
+                />
               );
             })}
           </div>
