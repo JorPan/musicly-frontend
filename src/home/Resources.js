@@ -9,7 +9,8 @@ export default function Resources() {
         better music and keep better track of their growth.
       </p>
       <p>
-        Sharp11 and Tonal.JS were utilized for music theory to create Mode-ify.
+        Sharp11 and Tonal.JS were utilized for music theory to create the
+        Mode-ify app.
       </p>
     </div>
   );
