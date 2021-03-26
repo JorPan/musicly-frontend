@@ -56,7 +56,7 @@ HAVE FUN!
 
 ## Status
 
-This app is still under construction, but can be used locally, and will be deployed soon! 
+This app is still under construction, but can be used locally, and will be deployed for use soon! 
 
 
 ## Contact
