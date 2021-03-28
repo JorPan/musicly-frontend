@@ -179,19 +179,19 @@ const MainMode = () => {
               >
                 Clear Chord
               </Button>
-              <Button
+              {/* <Button
                 onClick={saveChord}
                 className="current-chord-button"
                 variant="outlined"
               >
                 Save Chord
-              </Button>
+              </Button> */}
               <Button
                 onClick={makeMagic}
                 className="current-chord-button"
                 variant="outlined"
               >
-                Make Magic
+                Magic Mode
               </Button>
             </div>
           ) : null}
