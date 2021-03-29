@@ -234,12 +234,12 @@ export default function Chords(props) {
           <h1 className="dropzone-title">Progression Builder</h1>
           {state.builder.length > 0 ? (
             <div>
-              <button
+              {/* <button
                 onClick={saveProgression}
                 className="save-progression-button"
               >
                 Save
-              </button>
+              </button> */}
               <button
                 onClick={clearProgression}
                 className="save-progression-button"
