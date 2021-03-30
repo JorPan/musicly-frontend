@@ -131,7 +131,7 @@ const MainMode = () => {
             options={options}
             onChange={soundSelect}
             // value={state.sound}
-            placeholder="Select an option"
+            placeholder="Sound Selector"
           />
         </div>
 
@@ -186,13 +186,15 @@ const MainMode = () => {
               >
                 Save Chord
               </Button> */}
-              <Button
-                onClick={makeMagic}
-                className="current-chord-button"
-                variant="outlined"
-              >
-                Magic Mode
-              </Button>
+              {state.mode == "magic" ? null : (
+                <Button
+                  onClick={makeMagic}
+                  className="current-chord-button"
+                  variant="outlined"
+                >
+                  Magic Mode
+                </Button>
+              )}
             </div>
           ) : null}
           <div></div>
