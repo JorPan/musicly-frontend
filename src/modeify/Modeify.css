@@ -415,12 +415,13 @@ body {
   position: absolute;
   top: 0;
   left: 39vw;
-  width: 20vw;
+  width: 16vw;
   font-size: 1.7vh;
   font-weight: bolder;
-  color: rgb(126, 31, 31, 0.6);
+  color: rgb(100, 24, 24);
   font-family: "Montserrat", sans-serif;
   border: 1px solid rgb(126, 31, 31, 0.6);
   padding: 1vh;
   border-radius: 10px;
+  height: 13vh;
 }

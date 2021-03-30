@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { TextField, Button } from "@material-ui/core";
 import "./Auth.css";
 
 export default class Login extends Component {

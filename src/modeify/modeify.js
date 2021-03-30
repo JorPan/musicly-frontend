@@ -146,8 +146,6 @@ const MainMode = () => {
                 Pause Chord
               </Button>
             </div>
-          ) : state.mode === "ready" ? (
-            <p className="instructions1">Play some Keys!</p>
           ) : null}
 
           <div className="current-chord">
