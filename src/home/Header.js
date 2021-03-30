@@ -63,6 +63,11 @@ export default function Header() {
             </Link>
           </StyledButton2>
         </div> */}
+        <div className="directions">
+          <p> - Play keys to play notes</p>
+          <p> - Shift key to pause current notes</p>
+          <p> - Enter key to enter magic mode</p>
+        </div>
       </div>
     </div>
   );
