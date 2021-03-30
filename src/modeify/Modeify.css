@@ -414,5 +414,13 @@ body {
   display: inline-block;
   position: absolute;
   top: 0;
-  font-weight: bold;
+  left: 37vw;
+  width: 20vw;
+  font-size: 1.7vh;
+  font-weight: bolder;
+  color: rgb(126, 31, 31, 0.6);
+  font-family: "Montserrat", sans-serif;
+  border: 1px solid rgb(126, 31, 31, 0.6);
+  padding: 1vh;
+  border-radius: 10px;
 }

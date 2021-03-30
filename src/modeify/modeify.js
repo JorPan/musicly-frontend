@@ -197,7 +197,13 @@ const MainMode = () => {
           ) : null}
           <div></div>
         </div>
+        <div className="directions">
+          <p> - Play keys to play notes</p>
+          <p> - Shift key to pause current notes</p>
+          <p> - Enter key to enter magic mode</p>
+        </div>
       </div>
+
       <div className="piano">
         <Piano
           newNotes={state.newNotes}
