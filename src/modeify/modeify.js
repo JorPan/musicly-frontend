@@ -130,7 +130,6 @@ const MainMode = () => {
             className="sound-dropdown"
             options={options}
             onChange={soundSelect}
-            // value={state.sound}
             placeholder="Sound Selector"
           />
         </div>
@@ -143,7 +142,7 @@ const MainMode = () => {
                 className="pause-chord-button"
                 variant="outlined"
               >
-                Pause Chord
+                Pause Notes
               </Button>
             </div>
           ) : null}
