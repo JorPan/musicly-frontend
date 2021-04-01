@@ -2,8 +2,6 @@ import React from "react";
 import ChordPlayers from "./ChordPlayers";
 
 export default function ChordCard(props) {
-  console.log(props.handleClick);
-
   return (
     <div className="chord-card" draggable="true">
       <h1 className="card-title">{props.chord}</h1>
