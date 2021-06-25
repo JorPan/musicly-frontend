@@ -18,6 +18,7 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
+          {/* SET UP FOR AUTH USAGE */}
           {/* <Route path="/login" component={Login} /> */}
           {/* <Route path="/signup" component={Signup} /> */}
           <Route path="/about" component={About} />

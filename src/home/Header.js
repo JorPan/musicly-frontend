@@ -50,6 +50,7 @@ export default function Header() {
         </ul>
       </Link>
       <div className="links">
+        {/* SET UP FOR AUTH USAGE */}
         {/* <div className="nav"></div> */}
         {/* <div className="auth">
           <StyledButton1 variant="outlined">

@@ -22,14 +22,17 @@ const MainMode = () => {
     newNotes: false,
   });
 
+  // Changes the sound of the piano
   const soundSelect = (event) => {
     setState({ ...state, sound: event.value });
   };
 
+  // Detects piano keys - returns false if control, shift, or enter as those have different functions
   const isRegularKey = (event) => {
     return !event.ctrlKey && !event.metaKey && !event.shiftKey;
   };
 
+  // set event listeners upon render
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("keyup", handleKeyUp);
@@ -39,10 +42,12 @@ const MainMode = () => {
     };
   }, [state.notesPlaying, state.sound]);
 
+  // detects what key is pressed on the keyboard
   const getNoteFromKeyboardKey = (keyboardKey) => {
     return KeyboardMap[keyboardKey.toUpperCase()];
   };
 
+  // handles the key down event to play a sound and display the note playing
   const handleKeyDown = (e) => {
     if (isRegularKey(e) && !e.repeat) {
       const note = getNoteFromKeyboardKey(e.key);
@@ -65,6 +70,7 @@ const MainMode = () => {
     }
   };
 
+  // handles key up event to remove prior note from notesPlaying state
   const handleKeyUp = (e) => {
     if (isRegularKey(e) && !e.repeat) {
       const note = getNoteFromKeyboardKey(e.key);
@@ -80,17 +86,19 @@ const MainMode = () => {
     }
   };
 
+  // clears the current chord
   const clearChord = () => {
     setState({ ...state, chordBuilder: [], notesPlaying: [], mode: "ready" });
   };
 
+  // pauses the current chord
   const pauseChord = (event) => {
     window.removeEventListener("keyup", handleKeyUp);
     let chordName = Chord.detect(state.notesPlaying);
     if (chordName.length > 1) {
       chordName = Chord.detect(state.notesPlaying)[0];
     }
-    let chord = [...state.notesPlaying];
+    const chord = [...state.notesPlaying];
     setState({
       ...state,
       chordBuilder: chord,
@@ -99,15 +107,17 @@ const MainMode = () => {
     });
   };
 
+  // set up to save chord to back end
   const saveChord = (event) => {};
 
+  // starts magic mode and displays magic mode features
   const makeMagic = (event) => {
     window.removeEventListener("keydown", handleKeyDown);
     let chordName = Chord.detect(state.notesPlaying);
     if (chordName.length > 1) {
       chordName = Chord.detect(state.notesPlaying)[0];
     }
-    let chord = [...state.notesPlaying];
+    const chord = [...state.notesPlaying];
     setState({
       ...state,
       chordBuilder: chord,

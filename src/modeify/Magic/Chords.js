@@ -6,8 +6,9 @@ import ChordPlayers from "./ChordPlayers";
 import ChordCard from "./ChordCard";
 // const Scale = require("sharp11").scale;
 
+// This component is an ultimate show of hackiness to make something work, made before I truly inderstanded React.
 export default function Chords(props) {
-  let [state, setState] = useState({
+  const [state, setState] = useState({
     extensions: false,
     scales: false,
     scale: "More Scales...",
@@ -19,6 +20,7 @@ export default function Chords(props) {
     progression: [],
   });
 
+  // Variables to store data without the need to cause a re-render
   let key;
   let tempKey;
   let tempChords;
@@ -28,6 +30,7 @@ export default function Chords(props) {
   let majorminor;
   let scaleNotes;
 
+  // Detect chords and get chord options
   if (props.mode === "magic") {
     chord = Chord.detect(props.chord);
 
@@ -57,6 +60,7 @@ export default function Chords(props) {
     majorminor = "major";
   }
 
+  // Display chord extensions
   const chordExtensions = () => {
     setState({
       ...state,
@@ -68,6 +72,7 @@ export default function Chords(props) {
     });
   };
 
+  // Display the scale of the chord
   const viewScale = (event) => {
     let currentScale = Scale.get(`${key} ${event.value}`).notes;
     setState({
@@ -81,6 +86,7 @@ export default function Chords(props) {
     });
   };
 
+  // Clear the scale of a chord
   const clearScale = () => {
     setState({
       ...state,
@@ -93,6 +99,7 @@ export default function Chords(props) {
     });
   };
 
+  // View or hide major scale suggestions
   const majorScale = () => {
     setState({
       ...state,
@@ -104,6 +111,7 @@ export default function Chords(props) {
     });
   };
 
+  // View or hide minor scale suggestions
   const minorScale = () => {
     setState({
       ...state,
@@ -115,6 +123,7 @@ export default function Chords(props) {
     });
   };
 
+  // Add a card to the current chord progression builder
   const addToBuilder = (event) => {
     let currentCard = [event.target.parentNode.parentNode];
     let currentCardName = currentCard[0].children[0].innerText;
@@ -123,6 +132,7 @@ export default function Chords(props) {
     setState({ ...state, builder: [...state.builder, newFavorite] });
   };
 
+  // Remove a card from the current chord progression builder
   const removeFromBuilder = (event) => {
     let currentBuilder = [...state.builder];
     let cardToRemove = [event.target.parentNode.parentNode];
@@ -134,16 +144,19 @@ export default function Chords(props) {
     setState({ ...state, builder: filteredProgression });
   };
 
+  // detects major scale notes
   if (state.major === true) {
     scaleNotes = Key.majorKey(`${key}`).scale;
     tempChords = Key.majorKey(`${key}`).chords;
   }
 
+  // detects minor scale notes
   if (state.minor === true) {
     scaleNotes = Key.minorKey(`${key}`).natural.scale;
     tempChords = Key.minorKey(`${key}`).natural.chords;
   }
 
+  //changes the key
   const changeKey = (event) => {
     tempKey = event.target.innerText;
     let majorChords = Key.majorKey(`${tempKey}`).chords;
@@ -152,12 +165,14 @@ export default function Chords(props) {
     setState({ ...state, scaleChords: newChords });
   };
 
+  // set up to save to back end
   const saveProgression = (event) => {
     console.log(`Saving ${state.builder}`);
     let currentBuild = state.builder;
     setState({ ...state, progession: currentBuild, builder: [] });
   };
 
+  // clears current progression
   const clearProgression = (event) => {
     setState({ ...state, builder: [] });
   };
