@@ -3,7 +3,7 @@
 
 Musicly's Mode.ify is a web app designed for musicians to write more complex chords and progressions, making their music more interesting, and invoke more emotion.
 
-The main feature is a piano that maps to your computer keyboard, with a chord builder and chord progression builder, and several suggestion modes that suggest more complex chords, or chords that fit within the key you're in. 
+The main feature is a piano that maps to your computer keyboard, with a chord builder and chord progression builder, and several suggestion modes that suggest more complex chords, or chords that fit within the key you're in. This now utilizes local storage so you can save chords and chord progressions locally and access them later.
 
 ## Demo Video
 [Musicly - Mode.ify Demo Video](https://www.youtube.com/watch?v=HNiOuJO_xKI)
